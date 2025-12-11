@@ -4,30 +4,73 @@ sidebar_position: 5
 
 # Governance
 
-:::warning
-**Mustang Finance currently has no governance token available. Please be cautious of scams.** 
-:::
+## BaseD Token
 
-Governance do NOT have the power to:
-- Mint new MUST or control user Troves.
-- Upgrade the protocol contracts.
-- Change the split or behavior of protocol interest payment fees.
+BaseD is the governance token of BaseDollar Protocol.
 
-Governance does have the power to:
-- Add and remove collateral types with a timelock.
-- Update the over-collateralization requirements with a timelock.
-- Turn governance power over to a new system with a timelock.
+### Token Distribution
 
-:::tip
-Timelock means that these changes must be submitted transparently onchain, but do not come into effect until a certain amount of time has passed. The default timelock period is 7 days.
-:::
+- **76.3% Community** (see BaseD Key Concepts PDF for full breakdown)
 
-## Governance Safe
+### Revenue for Stakers
 
-:::info
-The protocol is governed by a 2-of-3 multisig at:
+BaseD token stakers receive:
 
-`0x92A857b519F73783E27642c0f4A5DBAc8953e66B`
+1. **10% of all interest** collected on the protocol from regular branches
+2. **10% of all AERO** farmed from LP token branches
 
-This safe receives all protocol interest/fees and controls key protocol parameters.
-:::
+### Voting Power
+
+The protocol will fork LQTYv2 governance, with voting power accruing over time.
+
+### Governance Powers
+
+When governance is active, BaseD holders can vote on:
+
+- **New collateral to be accepted** (TBD)
+- **Where to allocate BaseD veAERO voting power** (within whitelisted pools involving BaseD or BaseD)
+
+### Distribution Strategy
+
+TBD
+
+## Protocol Owned Liquidity (POL)
+
+BaseDollar uses Protocol Owned Liquidity instead of Protocol Incentivized Liquidity (PIL).
+
+### POL Treasury Revenue
+
+The POL treasury earns:
+
+- AERO from LP borrowers
+- BaseD from interest rates
+- Trading fees from BaseD, BOLD, ETH and BaseD pools
+
+The treasury locks AERO as veAERO to support pools and establish permanent liquidity.
+
+## Revenue Distribution
+
+### Interest from Regular Branches
+
+| Recipient | Share |
+|-----------|-------|
+| sBaseD | 80% |
+| POL Treasury | 10% |
+| BaseD Stakers | 10% |
+
+### AERO from LP Token Branches (35% Protocol Tax)
+
+| Recipient | Share of 35% Tax | % of Total AERO |
+|-----------|------------------|-----------------|
+| POL Treasury | 80% | 28% |
+| FsBaseD | 10% | 3.5% |
+| BaseD Stakers | 10% | 3.5% |
+
+### BaseDollar AERO Strategy
+
+The protocol:
+
+1. Earns 28% of all AERO farmed (after distributions to FsBaseD and BaseD stakers)
+2. Locks it as veAERO
+3. Votes for sAMM_BaseD/BOLD & vAMM_BASED/ETH once live
+4. Collected fees are compounded into POL
