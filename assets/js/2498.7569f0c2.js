@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbasedollar_docs=self.webpackChunkbasedollar_docs||[]).push([[2498],{2498:(e,s,c)=>{c.d(s,{createArchitectureServices:()=>a.S});var a=c(3009);c(8198)}}]);
