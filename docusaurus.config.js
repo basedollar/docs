@@ -10,23 +10,23 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Mustang Finance Protocol Documentation",
-  tagline: "Your CDP for the open range.",
+  title: "BaseDollar Documentation",
+  tagline: "Liquity V2 fork on Base with LP token collateral and AERO farming revenue.",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://docs.must.finance",
+  url: "https://docs.basedollar.org",
   // Set the /<baseUrl>/ pathname under which your site is served
   baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "MustangProtocol", // Usually your GitHub org/user name.
-  projectName: "mustang-docs", // Usually your repo name.
+  organizationName: "basedollar", // Usually your GitHub org/user name.
+  projectName: "docs", // Usually your repo name.
   deploymentBranch: "gh-pages",
   trailingSlash: false,
 
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
@@ -44,7 +44,7 @@ const config = {
       ({
         docs: {
           sidebarPath: "./sidebars.js",
-          editUrl: "https://github.com/MustangProtocol/mustang-docs/tree/main/",
+          editUrl: "https://github.com/basedollar/docs/tree/main/",
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -60,11 +60,11 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: "img/mustang-social-card.jpg",
+      image: "img/based-social-card.jpg",
       navbar: {
-        // title: "Mustang Finance",
+        // title: "BaseD",
         logo: {
-          alt: "Mustang Finance Logo",
+          alt: "BaseD Logo",
           src: "/img/logo.svg",
         },
         items: [
@@ -75,7 +75,7 @@ const config = {
             label: "Docs",
           },
           {
-            href: "https://github.com/MustangProtocol/mustang-docs",
+            href: "https://github.com/basedollar/docs",
             label: "GitHub",
             position: "right",
           },
@@ -102,26 +102,33 @@ const config = {
             items: [
               {
                 label: "Github",
-                href: "https://github.com/MustangProtocol/must-finance",
+                href: "https://github.com/basedollar/basedollar",
               },
               {
                 label: "Discord",
-                href: "https://discord.gg/sagaxyz",
+                href: "TBD",
               },
               {
                 label: "X",
-                href: "https://x.com/mustangfinance",
+                href: "TBD",
               },
             ],
           },
           {
             title: "More",
             items: [
-              
+              {
+                label: "App",
+                href: "https://app.basedollar.org/",
+              },
+              {
+                label: "Website",
+                href: "https://basedollar.org/",
+              },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Nifty Chess, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} BaseDollar. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

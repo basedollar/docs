@@ -4,23 +4,56 @@ sidebar_position: 6
 
 # Collateral Parameters
 
-[Checkout out this blog](https://www.nerite.org/writing/tech-talk-collateral-ratios) on how various collateral ratio systems work.
+BaseDollar accepts two types of collateral: standard single-asset collateral and Aerodrome LP token collateral.
 
-MCR is the primary requirement for each trove, but there are also overall global requirements for each branch.
+## Standard Collaterals
 
-| Asset | Native chain | Decimals | Custom Wrapper | Initial Debt Limit | Collateralization Requirement | Max LTV | Liquidation Penalty |
-|-------|--------------|----------|----------------|-------------------|-------------------|---------|-------------------|
-| wETH | Ethereum | 18 | no | $100M | 110 | 90.91% | 5% |
-| yETH | Ethereum | 18 | no | $5M | 120 | 83.33% | 5% |
-| tBTC | Ethereum | 18 | no | $100M | 110 | 90.91% | 5% |
-| SAGA | SagaEVM | 6 | yes | $1M | 150 | 66.67% | 5% |
-| stATOM | SagaEVM | 6 | yes | $1M | 125 | 80.00% | 5% |
-| KING | Ethereum | 18 | no | $500K | 150 | 66.67% | 5% |
-| yUSD | SagaEVM | 18 | no | $5M | 115 | 86.96% | 5% |
+| Asset | Envisioned LTV |
+|-------|----------------|
+| wETH | 90.91% |
+| cbBTC | 87.5% |
+| wstETH | 87.5% |
+| superOETHb | 85% |
 
-BCR is MCR + 10% in all cases.
+Standard collaterals have:
+- User-defined interest rates
+- Redemptions enabled
+- Individual stability pools
 
+## LP Token Collaterals (Aerodrome)
 
-## Debt Limit
+LP token collaterals are in segregated branches with unique mechanics:
+- **Auto-staking** in Aerodrome gauges for AERO rewards
+- **~30-35% AERO tax** (TBD) taken by protocol as interest
+- **NO redemptions** (positions protected from redemption risk)
+- **Aggregated stability pool** (FsBaseD) instead of individual pools
 
-For security, the debt limit can be set to 0 by governance, in case of emergency. This would allow only paying back debt, and no new borrowing. Governance can then later increase up to the initial debt limit, or up to 2x the current debt limit.
+### sAMM (Stable AMM) Pairs - 82.5% LTV
+
+| Pair | Current TVL | Current APR |
+|------|-------------|-------------|
+| wETH/msETH | $18.5M | 10.64% |
+| msUSD/USDC | $10M | 12.71% |
+| BaseD/USDC | $4M | 8.5% |
+| BaseD/LUSD | $2M | 9.8% |
+
+### vAMM (Volatile AMM) Pairs - 70% LTV
+
+| Pair | Current TVL | Current APR |
+|------|-------------|-------------|
+| USDC/AERO | $62M | 40% |
+| USDC/ETH | $22.3M | 11.5% |
+| wETH/WELL | $11.3M | 9.1% |
+| VIRTUAL/wETH | $8.8M | 28.8% |
+| wETH/cbBTC | $5M | 4.2% |
+| wETH/AERO | $5M | 27.9% |
+| VIRTUAL/cbBTC | $4.4M | 28% |
+
+## Key Differences
+
+| Feature | Standard Collaterals | LP Token Collaterals |
+|---------|---------------------|---------------------|
+| **Stability Pool** | Individual per collateral | Aggregated (FsBaseD) |
+| **Redemptions** | Enabled | Disabled |
+| **Interest** | User-set rate | ~30-35% of AERO farmed (TBD) |
+| **Branch Type** | Regular | Segregated, capped |

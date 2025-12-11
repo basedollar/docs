@@ -5,16 +5,17 @@ sidebar_position: 1
 
 # General
 
-### What is Mustang Finance?
-Mustang Finance is a decentralized borrowing protocol that lets users deposit WETH, tBTC, SAGA, stATOM, KING, yETH, and yUSD as collateral, and mint the stablecoin MUST at an interest rate depositors choose. Mustang Finance is a Liquity V2 fork built specifically for the Saga EVM.
+### What is BaseDollar?
+BaseDollar is a decentralized borrowing protocol that lets users deposit ETH, rETH, wstETH, cbBTC, superOETHb, AERO, and Aerodrome LP tokens as collateral, and mint the stablecoin BaseD at an interest rate depositors choose. BaseDollar is a Liquity V2 fork built specifically for Base with innovative LP token collateral and AERO farming revenue.
 
-### The main use-cases for Mustang Finance are:
+### The main use-cases for BaseDollar are:
 
-- Borrow MUST
+- Borrow BaseD
 - 1-click multiply exposure to collateral assets
-- Earn yield by depositing MUST in the stability pool or farming elsewhere
+- Earn yield by depositing BaseD in the stability pools or FsBaseD pool
+- Leverage Aerodrome LP positions while earning AERO rewards
 
-To understand Mustang Finance it's helpful to understand [Liquity](https://www.liquity.org) 
+To understand BaseDollar it's helpful to understand [Liquity](https://www.liquity.org) 
 
 
 :::tip
@@ -32,43 +33,49 @@ To understand Mustang Finance it's helpful to understand [Liquity](https://www.l
 |Redemption of stablecoins for underlying collateral maintains the $1.00 peg no matter what| Troves are now transferable|
 |ETH Mainnet Only|V1’s code was free and open-sourced (FOSS), while with V2, Liquity will have its code set as a business source license (BUSL)|
 
-### Mustang Finance vs Liquity V2
+### BaseDollar vs Liquity V2
 | Key Differences | Description  |
 |--|--|
-| **Blockchain** | Saga EVM (Chain ID: 5464) vs Ethereum Mainnet |
-| **Collateral Types** | WETH, tBTC, SAGA, stATOM, KING, yETH, yUSD vs ETH, wstETH, rETH (Liquity V2) |
-| **No Gas Costs** | Transactions on Saga EVM don't require gas or a gas deposit |
-| **Governance** | More protocol parameters are governable: fees, LTV requirements, minimum debt, minimum interest rate, ability to add/remove collateral branches |
-| **Security Features** | Additional security features including debt limits per collateral type |
-| **EVM Version** | Built for Saga's EVM version vs Cancun EVM (Liquity V2) |
+| **Blockchain** | Base (Ethereum L2) vs Ethereum Mainnet |
+| **Collateral Types** | Standard: ETH, rETH, wstETH, cbBTC, superOETHb, AERO<br/>**LP Tokens**: Aerodrome vAMM and sAMM pairs |
+| **LP Token Innovation** | Accepts Aerodrome LP tokens as collateral with auto-staking for AERO rewards |
+| **AERO Integration** | Protocol collects 35% of AERO rewards from LP borrowers as interest |
+| **FsBaseD Pool** | Aggregated stability pool for all LP token liquidations |
+| **Redemption Protection** | LP token branches are NOT redeemable (protects LP positions) |
+| **Revenue Distribution** | 80% to sBaseD, 20% to FsBaseD + AERO rewards distribution |
 
-## Does Mustang Finance have governance?
-Mustang Finance has governance that can manage specific protocol parameters including:
-- Distributing Protocol Liquidity Incentives (PIL)
-- Directing protocol revenue to external initiatives
+## Does BaseDollar have governance?
+BaseDollar has governance through the BaseD token that can manage specific protocol parameters including:
+- Distributing Protocol Owned Liquidity (POL)
+- Directing protocol revenue and AERO rewards
 - Managing fees, LTV requirements, and minimum debt thresholds
 - Updating collateral debt limits
 - Adding or removing collateral branches via the Collateral Registry
+- Voting on veAERO allocation strategy
 
-Governance operates with a manual incentive direction system, replacing Liquity's original governance model.
+BaseD token stakers earn 10% of all interest revenue from standard branches + 10% of AERO farmed from LP token branches. BaseD has no utility at launch and voting power accrues over time.
 
 
 ## Other Helpful Resources:
 
-Mustang Github:
-https://github.com/MustangProtocol/must-finance
+BaseDollar App:
+https://app.basedollar.org/
 
-Block explorer for Saga EVM:
-https://sagaevm.sagaexplorer.io/
+BaseDollar Website:
+https://basedollar.org/
 
-Saga Dev docs:
-https://docs.saga.xyz/
+BaseDollar Github:
+TBD
 
-Saga EVM Subgraphs from Goldsky:
-https://goldsky.com/products/subgraphs
+Base Block Explorer:
+https://basescan.org/
 
-Squid Router for bridging to Saga EVM from anywhere:
-https://app.squidrouter.com/
+Aerodrome Finance:
+https://aerodrome.finance/
 
-Current Saga-EVM Tellor Price Feeds:
-https://saga-tellor-pricefeeds.vercel.app/
+Liquity V2 Documentation:
+https://docs.liquity.org/
+
+Community:
+- Discord: TBD
+- X/Twitter: TBD

@@ -4,236 +4,341 @@ sidebar_position: 2
 
 # Borrowing and Liquidations
 
-### What makes borrowing on Mustang so unique?
+### What makes borrowing on BaseDollar so unique?
 
-Mustang allows users to borrow the stablecoin USND on their own terms. Borrowers can choose and adjust the rate they are willing to pay for their loans. Borrowers can choose to pay 0%, 5%, 20%, etc.. Borrowers will establish market rates in accordance with their individual risk tolerance without relying on governance or algorithm rate management. Each collateral also has its own respective borrow market which allows room for a market of rates to develop.
+BaseDollar allows users to borrow the stablecoin BaseD with two distinct collateral types:
+
+**Standard Collaterals**: Borrowers can choose and adjust the rate they are willing to pay for their loans (0%, 5%, 20%, etc.). Borrowers will establish market rates in accordance with their individual risk tolerance without relying on governance or algorithm rate management.
+
+**LP Token Collaterals**: Deposit Aerodrome LP tokens and pay interest via AERO farming tax. LP tokens are auto-staked in Aerodrome gauges, earning AERO rewards. Borrowers forfeit a percentage of the AERO farmed as interest, while keeping the majority of rewards. **LP branches have no redemption**.
+
+Each collateral has its own respective borrow market which allows room for a market of rates to develop.
 
 All of this makes for a highly capital efficient, secure and decentralized borrowing experience.
 
 ### What is a Trove?
 
-When a borrower deposits collateral (WETH, tBTC, SAGA, etc) a Trove is created.
-A **Trove** is Mustang's version of a 'vault'. Each Trove has a particular Ethereum address owner, and each owner can have multiple Troves.
+When a borrower deposits collateral, a Trove is created.
+
+A **Trove** is BaseD's version of a 'vault'. Each Trove has a particular address owner, and each owner can have multiple Troves.
 
 Each Trove can only have 1 type of collateral deposited in it.
+
 ```mermaid
-flowchart  LR
-
-A["User"]  -- Deposit ETH -->  B("Create Trove")
-
-B  -->  C("Set Rate, Collateral, and Debt value")
-
-C  -- Delegate -->  D("Manager")
-
-A  -- Deposit rETH -->  E("Create Trove")
-
-F("Set Rate, Collateral, and Debt value")  -- Delegate -->  G("Manager")
-
-E  -->  F
-
-n2("Set Rate, Collateral, and Debt value")  -- Delegate -->  n3("Manager")
-
-n1("Create Trove")  -->  n2
-
-A  --Deposit ARB-->  n1
+flowchart LR
+    A["User"] -- Deposit ETH --> B("Create Trove")
+    B --> C("Set Rate, Collateral, and Debt")
+    C -- Delegate --> D("Manager")
+    
+    A -- Deposit LP Token --> E("Create Trove")
+    E --> F("Auto-stake for AERO")
+    F --> G("Earn AERO rewards")
 ```
 
-Each Trove allows you to manage a loan, adjusting collateral and debt values as needed, as well as setting your own interest rate. Trove management can optionally be delegated to a "Manager" who is given special permissions. 
+Each Trove allows you to manage a loan, adjusting collateral and debt values as needed. For standard collaterals, you set your own interest rate. For LP tokens, interest is paid via AERO farming. Trove management can optionally be delegated to a "Manager" with special permissions.
 
-Troves are also transferable NFTs, and can be found in the wallet of the owner. Be cautious with this: transferring the NFT also transfers the ownership of the position.
+Troves are also transferable NFTs found in the wallet of the owner. Be cautious: transferring the NFT also transfers the ownership of the position.
 
-### What types of collateral can I use on Mustang?
+### What types of collateral can I use on BaseDollar?
 
-Mustang works with the following collaterals: 
-- WETH (Wrapped Ether)
-- rsETH (Kelp Ether)
-- tBTC (Threshold Bitcoin)
-- SAGA (Wrapped SAGA)
+BaseDollar works with two types of collateral:
 
-**Additional Collaterals:**
-- stATOM (Staked ATOM)
-- KING
-- yETH (Yearn ETH)
-- yUSD
+#### Standard Collaterals (Single Assets)
+
+- **wETH** (90.91% LTV)
+- **cbBTC** (87.5% LTV)
+- **wstETH** (87.5% LTV)
+- **superOETHb** (85% LTV)
+
+#### LP Token Collaterals (Aerodrome Pairs)
+
+**sAMM (Stable) Pairs - 82.5% LTV:**
+- wETH/msETH
+- msUSD/USDC
+- BaseD/USDC
+- BaseD/LUSD
+
+**vAMM (Volatile) Pairs - 70% LTV:**
+- USDC/AERO
+- USDC/ETH
+- wETH/WELL
+- VIRTUAL/wETH
+- wETH/cbBTC
+- wETH/AERO
+- VIRTUAL/cbBTC
 
 :::tip
-New collateral types can be added by governance. Existing ones can be removed, although users will always have the ability to withdraw their positions in the case of a collateral being removed. 
+**LP Token Benefits**:
+- Zero redemption risk (LP branches not redeemable)
+- Earn AERO rewards while borrowing
+- Auto-staking in Aerodrome gauges
+- Interest paid via AERO farming
+
+See [LP Token Collaterals](/docs/user-docs/lp-token-collaterals) for details.
+:::
+
+:::info
+New collateral types can be added by governance. Existing ones can be removed, although users will always have the ability to withdraw their positions if a collateral is removed.
 :::
 
 ### Is there a minimum debt?
 
-Yes, a minimum debt of 200 USND is required for borrowing.
+Yes, a minimum debt of 200 BaseD is required for borrowing.
 
-### **When do I need to pay back my loan?**
+### When do I need to pay back my loan?
 
 Loans issued by the protocol do not have a repayment schedule. You can leave your Trove open and repay your debt any time, as long as you maintain a healthy Loan-to-Value (LTV) Ratio.
 
-### Is there a lockup period? 
+### Is there a lockup period?
 
-There is no lockup period. Users are free to withdraw their collateral deposits whenever they want. 
+There is no lockup period. Users are free to withdraw their collateral deposits whenever they want.
+
 As an exception, withdrawals by borrowers are temporarily suspended if the total LTV of a borrow market goes above 75%.
 
 ### How do I decide on my LTV?
 
-This depends on your personal preferences, primarily your risk tolerance and how actively you want to manage your position(s). To help with the decision, you'll find preset options on the user interface that can serve as a guide.
+This depends on your personal preferences, primarily your risk tolerance and how actively you want to manage your position(s).
+
+**Key considerations**:
+- **Standard collaterals**: Higher LTV (up to 90.91% for wETH)
+- **sAMM LP tokens**: Medium LTV (82.5%)
+- **vAMM LP tokens**: Lower LTV (70% - due to volatility)
 
 :::tip
-We may display BOLD instead of USND in several graphics which are borrowed from Liquity.
+We may display BOLD or BaseD in graphics borrowed from Liquity documentation.
 :::
 
 ![](https://docs.liquity.org/~gitbook/image?url=https%3A%2F%2F2342324437-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FE2A1Xrcj7XasxOiotWky%252Fuploads%252FKYV7j08QhkPfeWdSZCE5%252Fltv_preset.png%3Falt%3Dmedia%26token%3D98dda88c-18ee-4993-9993-ece6d9242a86&width=768&dpr=4&quality=100&sign=6093ec1&sv=2)
+
 Please note that these examples are for illustration purposes only and do not represent definitive risk or safety thresholds. It's essential to determine your own risk tolerance and comfort level as a user.
 
 If your LTV becomes too high, your position will be liquidated.
-> LTV = Loan to Value a LTV of 50% means that if you borrowed $100, your collateral is $200.
 
-### How do Liquidations work in Mustang?
+> LTV = Loan to Value. An LTV of 50% means that if you borrowed $100, your collateral is worth $200.
 
-Mustang uses Tellor oracles to maintain proper price feeds for our collaterals. Check out the [oracles](/docs/technical-documentation/oracles) section for more info.
+### How do Liquidations work in BaseDollar?
 
-Troves get liquidated if the LTV goes above the maximum value.
+BaseDollar uses oracles (TBD - specific oracle provider) to maintain proper price feeds for our collaterals. Check out the [oracles](/docs/technical-documentation/oracles) section for more info.
 
-Mustang uses Stability Pools as its primary liquidation mechanism to absorb liquidated debt and collateral. Each borrow-market has its own dedicated Stability Pool earning liquidation gains (in the respective collateral) in exchange for burning debt. That means Stability Pool depositors earn 100% of the fees from liquidations on the protocol, and earn those fees in the liquidated collateral (for example, ETH).
+Troves get liquidated if the LTV goes above the maximum value for that collateral type.
 
-Just-In-Time liquidations and a redistribution of debt and collateral across borrowers of the same market handle liquidations as a last resort if the Stability Pool were ever empty.
+#### Standard Collateral Liquidations
+
+BaseDollar uses **individual Stability Pools** as the primary liquidation mechanism for standard collaterals. Each borrow-market has its own dedicated Stability Pool earning liquidation gains (in the respective collateral) in exchange for burning debt.
+
+Stability Pool depositors earn the liquidation fees in the liquidated collateral (e.g., ETH, cbBTC).
+
+#### LP Token Liquidations
+
+LP token branches use the **FsBaseD aggregated pool** instead of individual stability pools:
+
+- **Single pool** covers ALL LP token types (vAMM + sAMM)
+- No individual SP associated with sAMM & vAMM LPs (easier maintenance)
+- FsBaseD is an opt-in layer on sBaseD
+- Depositors earn AERO rewards + liquidation gains
+
+See [FsBaseD Pool](/docs/user-docs/fsbased-pool) for details.
+
+#### Fallback Liquidation Mechanisms
+
+Just-In-Time liquidations and redistribution of debt and collateral across borrowers of the same market handle liquidations as a last resort if the Stability Pool is empty.
 
 A liquidated borrower usually incurs a penalty of 5% and will be able to claim the remaining collateral after liquidation.
 
-A special case is when a Redistribution is necessary, then:
-
-* For WETH, the loss amounts to 10% of the debt (at most). That corresponds to a max. loss of 9.09% expressed in terms of collateral.
-* For tBTC/stATOM the loss is 20% of the debt, corresponding to a max. loss of 16.67% expressed in terms of collateral.
-* For SAGA the loss is higher due to increased volatility risk.
-
 ![](https://docs.liquity.org/~gitbook/image?url=https%3A%2F%2F2342324437-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FE2A1Xrcj7XasxOiotWky%252Fuploads%252FhaTvXYC1FTrAwmfXQZ14%252Fliqtable.png%3Falt%3Dmedia%26token%3Da2ab7753-5fd6-4741-8c43-871fc704aa1a&width=768&dpr=4&quality=100&sign=fba442d0&sv=2)
 
-### How am I compensated for liquidating a Trove? 
+### How am I compensated for liquidating a Trove?
 
-The liquidation of Troves is connected with certain gas costs which the initiator has to cover. The protocol offers a gas compensation given by the following formula:
+The liquidation of Troves is connected with certain gas costs which the initiator has to cover. The protocol offers gas compensation:
 
-`0.0375 WETH + min(0.5% trove_collateral, 2_units_of_collateral)`
+`0.0375 ETH + min(0.5% trove_collateral, 2_units_of_collateral)`
 
-The `0.0375 WETH` equivalent is funded by a [refundable gas deposit](borrowing-and-liquidations.md#what-is-the-refundable-gas-deposit) while the variable `0.5%` part comes from the liquidated collateral, slightly reducing the liquidation gain for Stability Providers. The specific gas compensation varies by collateral type (e.g., 2 tBTC on the tBTC branch, 2 stATOM on the stATOM branch).
+The `0.0375 ETH` equivalent is funded by a [refundable gas deposit](#what-is-the-refundable-gas-deposit) while the variable `0.5%` part comes from the liquidated collateral, slightly reducing the liquidation gain for Stability Providers.
 
 ### What is the max Loan-To-Value (LTV)?
 
-That depends on the collateral type you will use:
+LTV depends on the collateral type you use:
 
-- WETH: 90.91% LTV (110% MCR)
-- tBTC: 83.33% LTV (120% MCR)
-- SAGA: 71.43% LTV (140% MCR)
-- stATOM: 80% LTV (125% MCR)
-- KING: 66.67% LTV (150% MCR)
-- yETH: 83.33% LTV (120% MCR)
-- yUSD: 86.96% LTV (115% MCR)
+#### Standard Collaterals
+
+| Asset | Max LTV | MCR |
+|-------|---------|-----|
+| wETH | 90.91% | 110% |
+| cbBTC | 87.5% | 114.3% |
+| wstETH | 87.5% | 114.3% |
+| superOETHb | 85% | 117.6% |
+
+#### LP Token Collaterals
+
+| Type | Max LTV | MCR | Pairs |
+|------|---------|-----|-------|
+| sAMM (Stable) | 82.5% | 121.2% | wETH/msETH, msUSD/USDC, BaseD/USDC, BaseD/LUSD |
+| vAMM (Volatile) | 70% | 142.9% | USDC/AERO, USDC/ETH, wETH/WELL, etc. |
+
+:::warning
+LP token LTV is lower due to:
+- Impermanent loss risk
+- Underlying asset volatility
+- Pool-specific risks
+:::
 
 ### What is the refundable gas deposit?
 
-To open a new Trove, the protocol requires a liquidation reserve of 0.0375 ETH regardless of the chosen collateral, which is set aside to cover the gas costs of a potential liquidation. The deposit is returned when the Trove is closed by the user (including upon redemptions).
+To open a new Trove, the protocol requires a liquidation reserve of 0.0375 ETH (on Base) regardless of the chosen collateral, which is set aside to cover the gas costs of a potential liquidation. The deposit is returned when the Trove is closed by the user (including upon redemptions for standard collaterals).
 
 ### How much will I pay for my loan?
 
-On Mustang, there are no upfront fees. Instead, you pay interest on an ongoing basis, making it suitable for short-term loans as well. When creating a new position or increasing the amount borrowed, borrowers pay the first week of interest up front to prevent the protocol from leaking value to arbitrage bots.
+Payment depends on your collateral type:
 
-The interest you pay is determined by the rate you set yourself. For example, if you borrow 10,000 USND at a 5% interest rate, you'll pay \~500 USND in interest after one year. This interest is added to your outstanding debt.
+#### Standard Collaterals
 
-### What are user-set rates?
+On BaseD, there are no upfront fees for standard collaterals. Instead, you pay interest on an ongoing basis, making it suitable for short-term loans. When creating a new position or increasing the amount borrowed, borrowers pay the first week of interest up front to prevent arbitrage.
 
-On Mustang, users set their own interest rates, giving them full control over costs and improving predictability. This feature allows for adaptability to various market conditions and helps stabilize USND's peg.
+The interest you pay is determined by the rate you set yourself. For example, if you borrow 10,000 BaseD at a 5% interest rate, you'll pay ~500 BaseD in interest after one year. This interest is added to your outstanding debt.
 
-User-set interest rates facilitate a capital-efficient equilibrium between USND borrowers and holders in a fully market-driven manner. Additionally, these rates serve as the primary revenue source for USND holders, generating a continuous, sustainable real yield for USND depositors and liquidity providers.
+#### LP Token Collaterals
+
+For LP tokens, interest is paid via **AERO farming**:
+
+- LP tokens auto-staked in Aerodrome gauges
+- Earn AERO rewards continuously
+- **Borrowers forfeit a percentage** of AERO farmed as interest
+- **Keep the majority** of AERO rewards
+- No user-set interest rate needed
+
+This is a unique interest mechanism where you continue earning rewards while borrowing!
+
+See [LP Token Collaterals](/docs/user-docs/lp-token-collaterals) and [AERO Distribution](/docs/technical-documentation/aero-distribution) for more details.
+
+### What are user-set rates? (Standard Collaterals Only)
+
+On BaseD, users with **standard collaterals** set their own interest rates, giving them full control over costs and improving predictability.
+
+:::info
+**LP Token Note**: LP token borrowers do NOT set interest rates. Interest is automatically paid via AERO farming tax.
+:::
+
+User-set interest rates facilitate a capital-efficient equilibrium between BaseD borrowers and holders in a fully market-driven manner. These rates serve as the primary revenue source for BaseD holders, generating continuous, sustainable real yield for BaseD depositors.
 
 Borrowers should set their rates based on their [redemption](/docs/user-docs/redemption-and-delegation#what-are-redemptions) risk tolerance.
 
-Read more about setting your rates, or letting a Rate Manager partner set them for you for free [here](https://www.liquity.org/blog/interest-rate-management-in-liquity-v2).
-
 ### Can I adjust the rate?
 
-Yes, you can always adjust your interest rate at any time. Since you as a user get to set your own interest rate, you have full autonomy over your borrowing costs.
+**Standard Collaterals**: Yes, you can always adjust your interest rate at any time.
 
-Note however, that a fee corresponding to 7 days of average interest is charged when opening the loan, as well as on any rate adjustments that happen less than 7 days after the last adjustment. Without it, low-interest rate borrowers could evade redemptions by sandwiching a redemption transaction with both an upward and downward interest rate adjustment, which in turn would unduly direct the redemption against higher-interest borrowers.
+**LP Token Collaterals**: No rate adjustment needed. Interest is automatically paid via AERO farming.
 
-### How do I decide on the right rate for me?
+Note however, for standard collaterals, a fee corresponding to 7 days of average interest is charged when opening the loan, as well as on any rate adjustments that happen less than 7 days after the last adjustment.
 
-Setting an interest rate determines a user's redemption risk and needs to be aligned with your goals and how actively you want to manage your position.
+### How do I decide on the right rate for me? (Standard Collaterals)
 
-Users can also  decide to delegate interest rate management to a third party, who can set your interest rate and charge a fee for this service (see [link](/docs/user-docs/redemption-and-delegation#what-is-delegation-of-interest-rates)).
+Setting an interest rate determines your redemption risk and needs to be aligned with your goals and how actively you want to manage your position.
 
-By opting to manage your own rate, you will have to weigh the savings from a lower rate against the higher redemption risk and the increased adjustment frequency with potential additional costs (premature adjustment fees and gas costs).
+**Alternative**: Use LP token collateral instead for **zero redemption risk** (LP branches are not redeemable).
 
-Since redemptions are performed in ascending order of interest rate (for the respective collateral asset), you will typically want to keep a buffer of other borrowers with lower rates in front of you. Choosing higher rates may increase the recurring costs of your loan, but give you peace of mind regarding unexpected market fluctuations.
+Users can also decide to delegate interest rate management to a third party, who can set your interest rate and charge a fee for this service.
 
-You can see the distribution of other users' rates in a histogram and position yourself accordingly.
+By opting to manage your own rate, you will have to weigh the savings from a lower rate against the higher redemption risk and increased adjustment frequency with potential additional costs.
 
-![](https://docs.liquity.org/~gitbook/image?url=https%3A%2F%2F2342324437-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FE2A1Xrcj7XasxOiotWky%252Fuploads%252FHkqGvdaJxndhC8uhzLw0%252Frerwere.png%3Falt%3Dmedia%26token%3D796599d0-6785-4cd2-ad6a-bad02d062f45&width=768&dpr=4&quality=100&sign=c26f7d49&sv=2)
-
-Redemptions usually occur when USND is trading below $1 minus the current redemption fee. Keeping an eye on the past [redemption activity](https://dune.com/liquity/liquity-v2#redemptions) can help you assess the overall redemption risk, serving as an additional data point for your rate selection.
-
-In general, those willing to actively monitor their positions, or borrowing for shorter periods of time, may opt for lower rates. Conversely users optimizing for a more passive, long-term position would be better off with setting a higher relative interest rate.
+Since redemptions are performed in ascending order of interest rate (for the respective collateral asset), you will typically want to keep a buffer of other borrowers with lower rates in front of you.
 
 ### What could the average interest rate be?
 
-These will be set, continuously, by the market and will vary over time. We would expect that, on average, rates should be similar to borrowing on Sky or Aave using ETH. However, due to the flexibility of user-set rates, it is possible that some users will pay significantly lower rates during certain periods.&#x20;
+These will be set continuously by the market and will vary over time.
 
-Given that 75% of the interest revenue is directly paid out to USND depositors , we further expect that stablecoin deposit yields should be comparable, if not higher than what competing CDP's and lending markets offer. Thanks to the attractiveness of USND and assuming the emergence of external use cases (monetary premium), this could lead to lower borrow rates overall than offered by other platforms. Learn more about the spread between borrowers and lenders in our [article](https://www.liquity.org/blog/liquity-v2-a-de-facto-reference-rate-for-defi).
+Given that 80% of the interest revenue is paid out to BaseD depositors, we expect that stablecoin deposit yields should be competitive with or higher than other platforms.
 
 ### What determines the riskiness of my Trove?
 
-There are two key parameters to consider:
+There are two to three key parameters to consider:
 
-* **Loan-to-value (LTV)**: This is based on your debt-to-collateral ratio and affects your risk of [liquidation](borrowing-and-liquidations.md#how-do-liquidations-work-in-mustang).
+#### For Standard Collateral Troves
+
+* **Loan-to-value (LTV)**: Based on your debt-to-collateral ratio and affects your risk of [liquidation](#how-do-liquidations-work-in-based).
 * **Interest rate (IR)**: You set this rate yourself, and it influences your risk of being [redeemed](/docs/user-docs/redemption-and-delegation#what-are-redemptions).
 
-You have the flexibility to set these parameters as you see fit, allowing you to control the relative riskiness of each Trove. You can create multiple Troves under the same address, enabling you to manage different risk profiles for different portions of your portfolio.
+#### For LP Token Troves
 
-![](https://docs.liquity.org/~gitbook/image?url=https%3A%2F%2F2342324437-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FE2A1Xrcj7XasxOiotWky%252Fuploads%252FPtoSsrpN4nxIZviPrc1s%252FLoan%2520personas.png%3Falt%3Dmedia%26token%3D649cb0e4-eb3e-44e4-8fe6-4432dbaed967&width=768&dpr=4&quality=100&sign=bb12995f&sv=2)
+* **Loan-to-value (LTV)**: Based on LP token value and affects liquidation risk
+* **Impermanent Loss**: LP tokens subject to IL based on underlying assets
+* **No Redemption Risk**: LP branches are NOT redeemable (major advantage!)
+
+You have flexibility to set these parameters as you see fit, allowing you to control the relative riskiness of each Trove. You can create multiple Troves under the same address, enabling different risk profiles for different portions of your portfolio.
 
 ### Are there any other fees related to borrowing?
 
-To impede Trove redemption evasion strategies where borrowers try to minimize their interest payments in an unfair manner, a small "premature adjustment fee" is charged on interest rate changes that happen within less than 7 days since the last adjustment (or the opening of the Trove). The premature adjustment fee is equal to 7 days of average interest on the respective borrow market. Note that this fee differs from the user's set interest rate.&#x20;
+**Standard Collaterals**: A "premature adjustment fee" is charged on interest rate changes that happen within less than 7 days since the last adjustment (or the opening of the Trove). The fee equals 7 days of average interest on the respective borrow market. The same fee is charged when a new Trove is opened or when its debt is increased.
 
-The fee is denominated in USND and added to the Trove's debt. The same fee is charged when a new Trove is opened or when its debt is increased (only affecting the added debt).
+**LP Token Collaterals**: No premature adjustment fees (no rate adjustment capability). Interest is automatically paid via AERO farming.
 
 ### How many Troves (loans) can I open with the same address?
 
-You can have multiple open Troves for the same collateral or across different collateral types, all represented as separate NFTs.&#x20;
+You can have multiple open Troves for the same collateral or across different collateral types, all represented as separate NFTs.
+
+Mix and match:
+- Multiple ETH Troves with different rates
+- LP token Troves for different pairs
+- Combination of standard and LP collaterals
 
 ### Are Troves transferable?
 
-Yes, they are represented as a NFT (ERC-721), hence easily transferable between wallets. When you send the NFT you also send full access to your Trove and all the funds within it.&#x20;
+Yes, they are represented as NFTs (ERC-721), hence easily transferable between wallets. When you send the NFT you also send full access to your Trove and all the funds within it.
 
-Please note that more advanced strategies like 'selling' Troves on secondary markets like OpenSea comes with inherent risks, and caution is advised.
+Please note that selling Troves on secondary markets comes with inherent risks, and caution is advised.
 
 ### How do I loop my exposure?
 
-Looping allows you to borrow MUST against your deposited collateral (WETH, tBTC, or SAGA) and use it to buy more collateral, increasing your exposure to the underlying asset. Mustang Finance has built-in automation to achieve this with one click (zappers).
+Looping allows you to borrow BaseD against your deposited collateral and use it to buy more collateral, increasing your exposure to the underlying asset. BaseDollar has built-in automation to achieve this with one click (zappers).
+
+**LP Token Note**: Looping LP positions requires buying more LP tokens with borrowed BaseD, then depositing them as additional collateral.
 
 Make sure you choose a frontend that supports this functionality, and be mindful of liquidity/slippage.
 
 ### How are collateral risks mitigated?
 
-Mustang Finance has separate borrow markets for each collateral type with their own Stability Pools (for efficient liquidations), user-set interest rates, and LTV factors for their respective assets (WETH, tBTC, SAGA, stATOM, KING, yETH, yUSD).
+BaseDollar has separate borrow markets for each collateral type with their own liquidation mechanisms:
 
-Risks are mitigated through temporary borrowing restrictions in times of low collateralization of a given market, a redemption logic prioritizing  collateral with less Stability Pool backing, and a collateral shutdown as an emergency measure to maintain system balance and protect against market instability.
+**Standard Collaterals**:
+- Individual Stability Pools for efficient liquidations
+- User-set interest rates
+- Subject to redemptions
+- LTV factors per asset
 
-Keep in mind that despite all these measures, MUST remains dependent on the supported collateral assets and there is no strict guarantee that it remains overcollateralized in case of a sudden collapse of a collateral asset.
+**LP Token Collaterals**:
+- Segregated branches with capped debt limits
+- FsBaseD aggregated pool for all LP liquidations
+- **Not subject to redemptions** (protected)
+- Conservative LTV factors (70-82.5%)
 
-### How does the system compartmentalize risk among different LSTs? 
+Risks are mitigated through:
+- Temporary borrowing restrictions in times of low collateralization
+- Redemption logic prioritizing under-backed collateral (standard only)
+- Collateral shutdown as emergency measure
+- Segregation of LP token branches
+
+Keep in mind that despite all these measures, BaseDollar remains dependent on the supported collateral assets and there is no strict guarantee that it remains overcollateralized in case of a sudden collapse of a collateral asset.
+
+### How does the system compartmentalize risk among different collateral types?
 
 This depends on the party in question:
 
-* Borrowers: Collateral risk is limited to the collateral asset held by the borrower. A borrower isn't negatively affected by a failure of another collateral asset.
-* MUST Holders: As a multi-collateral stablecoin, MUST is reliant on effective liquidations of undercollateralized loans in every borrow market to remain overcollateralized. Holders are subject to the risks of all supported collateral assets.
-* Earners: Stability Pool depositors only get exposure to the asset they have opted for. However, as MUST holders, they are similarly affected by potential depegging.
+* **Borrowers**: Collateral risk is limited to the collateral asset held by the borrower. A borrower isn't negatively affected by failure of another collateral asset.
+* **BaseD Holders**: As a multi-collateral stablecoin, BaseD is reliant on effective liquidations of undercollateralized loans in every borrow market to remain overcollateralized. Holders are subject to the risks of all supported collateral assets.
+* **Earners**: 
+  - Individual SP depositors get exposure only to their chosen asset
+  - sBaseD depositors get diversified exposure to all standard collaterals
+  - FsBaseD depositors get exposure to all LP token types
+  - All earners are BaseD holders and subject to potential depegging
 
 ### What mechanisms are in place if the Stability Pool is empty?
 
-If the Stability Pool doesn't cover the full entire debt and gets completely emptied by the liquidation, the system falls back to the following liquidations modes.
+If the Stability Pool (or FsBaseD for LP tokens) doesn't cover the full debt and gets completely emptied by liquidation, the system falls back to:
 
-The liquidator can freely choose between two fallback liquidation modes for the debt exceeding the funds in the Stability Pool:
+The liquidator can freely choose between two fallback liquidation modes for the debt exceeding the funds in the pool:
 
-1. Just-in-time (JIT) liquidation: the liquidator sends an amount of MUST corresponding to the (remaining) debt in exchange for 105% of its nominal value in the collateral asset.
-2. Redistribution: the liquidator triggers a redistribution, through which the Trove's entire debt and collateral is redistributed to all fellow borrowers of the respective collateral market, in proportion to their own collateral amounts. Thus, the respective borrowers will receive a share of the liquidated collateral and see their debts increase proportionally.
+1. **Just-in-time (JIT) liquidation**: The liquidator sends an amount of BaseD corresponding to the (remaining) debt in exchange for 105% of its nominal value in the collateral asset.
+2. **Redistribution**: The liquidator triggers a redistribution, through which the Trove's entire debt and collateral is redistributed to all fellow borrowers of the respective collateral market, in proportion to their own collateral amounts.
 
 ### Shutdown Borrow Markets
-The system may shut down borrow markets whose total collateralization ratio (TCR) falls below the minimum threshold for each collateral type (110% for WETH, 120% for tBTC/stATOM, 140% for SAGA). The shutdown is performed by incentivizing redemptions against the respective collateral.
+
+The system may shut down borrow markets whose total collateralization ratio (TCR) falls below the minimum threshold for each collateral type. The shutdown is performed by incentivizing redemptions against the respective collateral (standard collaterals only - LP branches cannot be shut down via redemptions).
