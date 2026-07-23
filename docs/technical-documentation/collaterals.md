@@ -10,10 +10,12 @@ BaseDollar accepts two types of collateral: standard single-asset collateral and
 
 | Asset | Envisioned LTV |
 |-------|----------------|
-| wETH | 90.91% |
-| cbBTC | 87.5% |
-| wstETH | 87.5% |
-| superOETHb | 85% |
+| WETH | 90.91% |
+| wstETH | 83.33% |
+| rETH | 83.33% |
+| cbBTC | 90.91% |
+| cbETH | 83.33% |
+| AERO | 66.67% |
 
 Standard collaterals have:
 - User-defined interest rates
@@ -24,36 +26,17 @@ Standard collaterals have:
 
 LP token collaterals are in segregated branches with unique mechanics:
 - **Auto-staking** in Aerodrome gauges for AERO rewards
-- **~30-35% AERO tax** (TBD) taken by protocol as interest
-- **NO redemptions** (positions protected from redemption risk)
-- **Aggregated stability pool** (FsBaseD) instead of individual pools
+- **10% default AeroManager claim fee**, capped at 20%
+- **Redeemability configured per branch**
+- **Individual Stability Pool** for each LP branch
 
-### sAMM (Stable AMM) Pairs - 82.5% LTV
-
-| Pair | Current TVL | Current APR |
-|------|-------------|-------------|
-| wETH/msETH | $18.5M | 10.64% |
-| msUSD/USDC | $10M | 12.71% |
-| BaseD/USDC | $4M | 8.5% |
-| BaseD/LUSD | $2M | 9.8% |
-
-### vAMM (Volatile AMM) Pairs - 70% LTV
-
-| Pair | Current TVL | Current APR |
-|------|-------------|-------------|
-| USDC/AERO | $62M | 40% |
-| USDC/ETH | $22.3M | 11.5% |
-| wETH/WELL | $11.3M | 9.1% |
-| VIRTUAL/wETH | $8.8M | 28.8% |
-| wETH/cbBTC | $5M | 4.2% |
-| wETH/AERO | $5M | 27.9% |
-| VIRTUAL/cbBTC | $4.4M | 28% |
+Aerodrome LP-token collateral branches are coming soon. Pair-specific parameters will be published before launch.
 
 ## Key Differences
 
 | Feature | Standard Collaterals | LP Token Collaterals |
 |---------|---------------------|---------------------|
-| **Stability Pool** | Individual per collateral | Aggregated (FsBaseD) |
-| **Redemptions** | Enabled | Disabled |
-| **Interest** | User-set rate | ~30-35% of AERO farmed (TBD) |
+| **Stability Pool** | Individual per collateral | Individual per collateral |
+| **Redemptions** | Configured per branch | Configured per branch |
+| **Interest** | User-set rate | User-set rate; AERO rewards handled separately |
 | **Branch Type** | Regular | Segregated, capped |

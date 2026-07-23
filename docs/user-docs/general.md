@@ -5,17 +5,16 @@ sidebar_position: 1
 
 # General
 
-### What is BaseDollar?
-BaseDollar is a decentralized borrowing protocol that lets users deposit ETH, rETH, wstETH, cbBTC, superOETHb, AERO, and Aerodrome LP tokens as collateral, and mint the stablecoin BaseD at an interest rate depositors choose. BaseDollar is a Liquity V2 fork built specifically for Base with innovative LP token collateral and AERO farming revenue.
+### What is Base Dollar?
+Base Dollar is a decentralized borrowing protocol that lets users deposit WETH, wstETH, rETH, cbBTC, cbETH, AERO, and Aerodrome LP tokens as collateral, and mint the stablecoin BaseD at an interest rate depositors choose. BaseDollar is a Liquity V2 fork built specifically for Base with innovative LP token collateral and AERO farming revenue.
 
 ### The main use-cases for BaseDollar are:
 
-- Borrow BaseD
-- 1-click multiply exposure to collateral assets
-- Earn yield by depositing BaseD in the stability pools or FsBaseD pool
+- Borrow BD
+- Earn yield by depositing BD in the stability pools
 - Leverage Aerodrome LP positions while earning AERO rewards
 
-To understand BaseDollar it's helpful to understand [Liquity](https://www.liquity.org) 
+To understand Base Dollar, it's helpful to understand [Liquity](https://www.liquity.org).
 
 
 :::tip
@@ -37,15 +36,14 @@ To understand BaseDollar it's helpful to understand [Liquity](https://www.liquit
 | Key Differences | Description  |
 |--|--|
 | **Blockchain** | Base (Ethereum L2) vs Ethereum Mainnet |
-| **Collateral Types** | Standard: ETH, rETH, wstETH, cbBTC, superOETHb, AERO<br/>**LP Tokens**: Aerodrome vAMM and sAMM pairs |
-| **LP Token Innovation** | Accepts Aerodrome LP tokens as collateral with auto-staking for AERO rewards |
-| **AERO Integration** | Protocol collects 35% of AERO rewards from LP borrowers as interest |
-| **FsBaseD Pool** | Aggregated stability pool for all LP token liquidations |
-| **Redemption Protection** | LP token branches are NOT redeemable (protects LP positions) |
-| **Revenue Distribution** | 80% to sBaseD, 20% to FsBaseD + AERO rewards distribution |
+| **Collateral Types** | WETH, wstETH, rETH, cbBTC, cbETH, AERO, and Aerodrome LP tokens. Additional collateral types can be added in the future. |
+| **LP Token Innovation** | Routes configured Aerodrome LP collateral through AeroManager for gauge staking and AERO rewards. |
+| **AERO Integration** | AeroManager charges a 10% default claim fee, capped at 20%, and sends it to the treasury. |
+| **Branch Redeemability** | Each branch is registered as redeemable or non-redeemable; LP collateral is not automatically protected. |
+| **Revenue Distribution** | 75% to the branch Stability Pool and 25% to the configured interest router. |
 
 ## Does BaseDollar have governance?
-BaseDollar has governance through the BaseD token that can manage specific protocol parameters including:
+BaseDollar currently uses governor roles rather than a deployed governance token. Planned governance scope includes:
 - Distributing Protocol Owned Liquidity (POL)
 - Directing protocol revenue and AERO rewards
 - Managing fees, LTV requirements, and minimum debt thresholds
@@ -53,7 +51,7 @@ BaseDollar has governance through the BaseD token that can manage specific proto
 - Adding or removing collateral branches via the Collateral Registry
 - Voting on veAERO allocation strategy
 
-BaseD token stakers earn 10% of all interest revenue from standard branches + 10% of AERO farmed from LP token branches. BaseD has no utility at launch and voting power accrues over time.
+A BASED governance-token and staking system is not deployed by the active deployment path.
 
 
 ## Other Helpful Resources:
@@ -65,7 +63,7 @@ BaseDollar Website:
 https://basedollar.org/
 
 BaseDollar Github:
-TBD
+https://github.com/basedollar
 
 Base Block Explorer:
 https://basescan.org/

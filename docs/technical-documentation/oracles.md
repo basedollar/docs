@@ -15,10 +15,12 @@ Oracle details will be published here when available.
 ## Standard Collaterals
 
 Price feeds needed for:
-- wETH
-- cbBTC
+- WETH
 - wstETH
-- superOETHb
+- rETH
+- cbBTC
+- cbETH
+- AERO
 
 ## LP Token Collaterals
 
@@ -27,9 +29,7 @@ LP token pricing requires composite oracles based on:
 - Pool reserves
 - LP token total supply
 
-LP tokens supported:
-- sAMM pairs (4 pairs)
-- vAMM pairs (7 pairs)
+Stable and volatile Aerodrome LP pools are supported by the oracle contracts. Pair and oracle details will be published when the upcoming LP-token branches launch.
 
 See [Collaterals](/docs/technical-documentation/collaterals) for the full list.
 
