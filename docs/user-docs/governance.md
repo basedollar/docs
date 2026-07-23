@@ -4,17 +4,17 @@ sidebar_position: 5
 
 # Governance
 
-## BaseD Token
+## BASED Token
 
-BaseD is the governance token of BaseDollar Protocol.
+BASED is the planned governance token. The active deployment path does not currently deploy BASED or its staking contract.
 
 ### Token Distribution
 
-- **76.3% Community** (see BaseD Key Concepts PDF for full breakdown)
+- **76.3% Community** (see BD Key Concepts PDF for full breakdown)
 
-### Revenue for Stakers
+### Proposed Revenue for Stakers
 
-BaseD token stakers receive:
+If implemented as described, BASED token stakers would receive:
 
 1. **10% of all interest** collected on the protocol from regular branches
 2. **10% of all AERO** farmed from LP token branches
@@ -25,10 +25,10 @@ The protocol will fork LQTYv2 governance, with voting power accruing over time.
 
 ### Governance Powers
 
-When governance is active, BaseD holders can vote on:
+When governance is active, BASED holders can vote on:
 
 - **New collateral to be accepted** (TBD)
-- **Where to allocate BaseD veAERO voting power** (within whitelisted pools involving BaseD or BaseD)
+- **Where to allocate BASED veAERO voting power** (within whitelisted pools involving BD or BD)
 
 ### Distribution Strategy
 
@@ -43,8 +43,8 @@ BaseDollar uses Protocol Owned Liquidity instead of Protocol Incentivized Liquid
 The POL treasury earns:
 
 - AERO from LP borrowers
-- BaseD from interest rates
-- Trading fees from BaseD, BOLD, ETH and BaseD pools
+- BD from interest rates
+- Trading fees from BD, BOLD, ETH and BD pools
 
 The treasury locks AERO as veAERO to support pools and establish permanent liquidity.
 
@@ -54,23 +54,13 @@ The treasury locks AERO as veAERO to support pools and establish permanent liqui
 
 | Recipient | Share |
 |-----------|-------|
-| sBaseD | 80% |
-| POL Treasury | 10% |
-| BaseD Stakers | 10% |
+| Branch Stability Pool | 75% |
+| Configured interest router | 25% |
 
-### AERO from LP Token Branches (35% Protocol Tax)
+### AERO from LP Token Branches
 
-| Recipient | Share of 35% Tax | % of Total AERO |
-|-----------|------------------|-----------------|
-| POL Treasury | 80% | 28% |
-| FsBaseD | 10% | 3.5% |
-| BaseD Stakers | 10% | 3.5% |
+AeroManager charges a 10% default claim fee, capped at 20%, and sends it to the configured treasury. Remaining rewards are allocated to borrowers through reward epochs.
 
 ### BaseDollar AERO Strategy
 
-The protocol:
-
-1. Earns 28% of all AERO farmed (after distributions to FsBaseD and BaseD stakers)
-2. Locks it as veAERO
-3. Votes for sAMM_BaseD/BOLD & vAMM_BASED/ETH once live
-4. Collected fees are compounded into POL
+A fixed veAERO voting or POL allocation strategy is not implemented in the current contracts.

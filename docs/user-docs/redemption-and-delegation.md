@@ -6,16 +6,16 @@ sidebar_position: 4
 
 ### What are redemptions?
 
-Redemptions serve the crucial purpose of keeping BaseD pegged to the value of a dollar, creating a price floor around $0.9945. They do this in a decentralized way without reliance on centralized assets, oracles, or 3rd parties.
+Redemptions serve the crucial purpose of keeping BD pegged to the value of a dollar, creating a price floor around $0.9945. They do this in a decentralized way without reliance on centralized assets, oracles, or 3rd parties.
 
-A redemption is essentially swapping BaseD for collateral at face value, as if 1 BaseD is exactly worth $1.00. Redemptions can be initiated by anyone, but are only profitable when BaseD is less than $1.
+A redemption is essentially swapping BD for collateral at face value, as if 1 BD is exactly worth $1.00. Redemptions can be initiated by anyone, but are only profitable when BD is less than $1.
 
-**Important**: The redeemer sends BaseD to the protocol and in return gets a mix of **standard collaterals only** (wETH, cbBTC, wstETH, superOETHb) minus the redemption fee. 
+**Important**: The redeemer sends BD to the protocol and receives collateral from branches registered as redeemable, minus the redemption fee. The current WETH, wstETH, rETH, cbBTC, cbETH, and AERO branches are redeemable.
 
 :::warning
-**LP Token Collaterals Are NOT Redeemable**
+**Redeemability Is Configured Per Branch**
 
-Aerodrome LP token branches (vAMM and sAMM pairs) are **completely protected from redemptions**. Users cannot redeem BaseD for LP tokens. This protects LP positions from redemption risk.
+An LP-token branch may be registered as redeemable or non-redeemable; LP collateral is not automatically protected from redemptions.
 :::
 
 The redeemed amount is split among the different **standard collateral assets** based on their current Stability Pool backing (see [link](#how-is-the-collateral-split-determined) for more info).
@@ -32,13 +32,13 @@ You can also watch this [9 min video](https://www.youtube.com/watch?v=CQVmjFx987
 
 In this case, the "Last In, First Out" (LIFO) principle applies, meaning the Trove that set its interest rate more recently will be redeemed first.
 
-### When can redemptions occur? 
+### When can redemptions occur?
 
-A redemption can occur at any time, but will likely only happen when it is profitable to do so. This is usually the case when the price of BaseD is less than $1 (minus the current redemption fee).
+A redemption can occur at any time, but will likely only happen when it is profitable to do so. This is usually the case when the price of BD is less than $1 (minus the current redemption fee).
 
-### Who can initiate a redemption? 
+### Who can initiate a redemption?
 
-Any Base address can initiate a redemption, provided that they have a sufficient amount of BaseD to do so. However, we expect redemptions to be mainly performed by professional bots rather than humans.
+Any Base address can initiate a redemption, provided that they have a sufficient amount of BD to do so. However, we expect redemptions to be mainly performed by professional bots rather than humans.
 
 ### What happens if my Trove gets redeemed?
 
@@ -48,28 +48,26 @@ If your collateral (ETH or LST) is redeemed, an equivalent amount of your debt i
 
 Example with ETH at $3'000:
 
-* Before the redemption: 10 ETH collateral, 20'000 BaseD debt.
-* After the redemption: 5.025 ETH collateral, 5'000 BaseD debt.
+* Before the redemption: 10 ETH collateral, 20'000 BD debt.
+* After the redemption: 5.025 ETH collateral, 5'000 BD debt.
 
 You can see your collateral and debt reduced equally (in USD terms) and the redemption fee (0.025 ETH) being added to your collateral value.
 
-Partially affected Troves whose debt stays above the minimum debt threshold of 200 BaseD continue to work as before, while Troves whose debt is reduced to a lesser amount (or 0) switch to a dormant operating mode (see below for [more](#what-happens-when-redemptions-cause-a-debt-of-a-trove-to-fall-below-the-minimum-amount) info).
+Partially affected Troves whose debt stays above the minimum debt threshold of 200 BD continue to work as before, while Troves whose debt is reduced to a lesser amount (or 0) switch to a dormant operating mode (see below for [more](#what-happens-when-redemptions-cause-a-debt-of-a-trove-to-fall-below-the-minimum-amount) info).
 
 ### How do redemptions work using multiple collateral assets?
 
 :::tip
-**Only Standard Collaterals Are Redeemable**
+**Only Registered Redeemable Branches Participate**
 
-Redemptions only affect standard single-asset collaterals (wETH, cbBTC, wstETH, superOETHb). LP token collaterals are in segregated branches and are NOT redeemable.
+Normal redemptions use branches in the Collateral Registry's redeemable list. Non-redeemable branches are excluded.
 :::
 
 ![](https://docs.liquity.org/~gitbook/image?url=https%3A%2F%2F2342324437-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FE2A1Xrcj7XasxOiotWky%252Fuploads%252FJtx0jgGBkGisNExyXZ5a%252Fredemption%2520split%25202.png%3Falt%3Dmedia%26token%3D79f895c0-290c-41e9-9aeb-b3fa5a3709f5&width=768&dpr=4&quality=100&sign=17e818d8&sv=2)
 
-In contrast to LUSD, BaseD is backed by a multitude of collaterals. Instead of letting the redeemer freely choose the collateral to redeem, Liquity V2 and BaseDollar optimize the process for economic safety. Redemptions are thus serviced through a collateral mix in a way that enhances the overall backing of BaseD.
+In contrast to LUSD, BD is backed by a multitude of collaterals. Instead of letting the redeemer freely choose the collateral to redeem, Liquity V2 and BaseDollar optimize the process for economic safety. Redemptions are thus serviced through a collateral mix in a way that enhances the overall backing of BD.
 
-**Standard Collateral Redemptions**: The process starts with the Troves paying the lowest interest rates in each **standard collateral market** and continues until the full amount of BaseD is exchanged for collateral assets. Redemptions can be partial or full.
-
-**LP Token Protection**: LP token branches (vAMM and sAMM) are completely excluded from the redemption process. This means borrowers using LP tokens as collateral have **zero redemption risk** regardless of their interest rate.
+The process starts with the Troves paying the lowest interest rates in each participating redeemable branch and continues until the full amount of BD is exchanged for collateral assets. Redemptions can be partial or full.
 
 In this example, different **standard collateral markets** (wETH, cbBTC, wstETH) show various combinations of full and partial redemptions across Troves with the lowest interest rates.
 
@@ -77,15 +75,14 @@ In this example, different **standard collateral markets** (wETH, cbBTC, wstETH)
 
 ### How is the collateral split determined?
 
-The split is dynamic, optimizing for the economic safety of the system among **standard collateral branches only**. LP token branches are excluded from redemptions entirely.
+The split is dynamic, optimizing for the economic safety of the system among eligible redeemable branches.
 
 The logic is straightforward: the riskier a collateral is, the more redemption volume is directed to that market. In other words, if a market's Stability Pool is relatively small compared to its total debt, it's considered riskier, as there's a higher likelihood of bad debt occurring in extreme events.
 
-To mitigate this risk, the system redeems proportionally to the "outside debt" of each **standard collateral type**. This is calculated as the total debt borrowed against a specific collateral minus the size of the Stability Pool for that borrowing market.
+To mitigate this risk, the system redeems proportionally to the "outside debt" of each eligible redeemable branch. This is calculated as the total debt borrowed against a specific collateral minus the size of the Stability Pool for that borrowing market.
 
-Here is an example: given outside debt amounts of 100 BaseD, 50 BaseD and 100 BaseD respectively across wETH, cbBTC, and wstETH, a redemption will result in a 40% (wETH), 20% (cbBTC) and 40% (wstETH) split.
+Here is an example: given outside debt amounts of 100 BD, 50 BD and 100 BD respectively across wETH, cbBTC, and wstETH, a redemption will result in a 40% (wETH), 20% (cbBTC) and 40% (wstETH) split.
 
-**Note**: LP token debt is not included in this calculation as those branches cannot be redeemed.
 
 ![](https://docs.liquity.org/~gitbook/image?url=https%3A%2F%2F2342324437-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FE2A1Xrcj7XasxOiotWky%252Fuploads%252FjSQv4scadWPAaEtb0whz%252Fredeem2.png%3Falt%3Dmedia%26token%3D6b7dc320-1b97-4cd7-9ad1-1afbbb7c70fe&width=768&dpr=4&quality=100&sign=eeabe72d&sv=2)
 
@@ -95,7 +92,7 @@ Yes. The redemption fee mechanics are broadly the same as in Liquity V1, but wit
 
 Redemption fees are based on the `baseRate` state variable, which is dynamically updated. The `baseRate` increases with each redemption, and exponentially decays according to time passed since the last redemption (half-life of 6 hours).
 
-Upon each redemption of x BaseD: `baseRate` is decayed based on time passed since the last fee event and incremented by an amount proportional to the fraction of the total BaseD supply to be redeemed, i.e. `x/total_bd_supply`
+Upon each redemption of x BD: `baseRate` is decayed based on time passed since the last fee event and incremented by an amount proportional to the fraction of the total BD supply to be redeemed, i.e. `x/total_bd_supply`
 
 The redemption fee percentage is given by `min (0.5%  + baseRate, 100%)`.
 
@@ -103,33 +100,27 @@ The redemption fee percentage is given by `min (0.5%  + baseRate, 100%)`.
 
 ### How can I stay protected?
 
-:::tip
-**LP Token Borrowers: Zero Redemption Risk**
+For borrowers in a redeemable branch, the risk of redemption depends on two factors: the interest rate you set and the price of BD.
 
-If you're borrowing against LP token collateral, you have **zero redemption risk** regardless of interest rate. LP branches are not redeemable. Skip to [LP Token Collaterals](/docs/user-docs/lp-token-collaterals) for more info.
-:::
-
-For **standard collateral borrowers**, the risk of redemption depends on two factors: the interest rate you set and the price of BaseD.
-
-**The interest rate** you set determines how much BaseD must be redeemed before it's your turn. The higher your rate, the more BaseD is redeemable before you, and vice versa.
+**The interest rate** you set determines how much BD must be redeemed before it's your turn. The higher your rate, the more BD is redeemable before you, and vice versa.
 
 You can see this on any frontend, in the example below the number is 41M.
 
 ![](https://docs.liquity.org/~gitbook/image?url=https%3A%2F%2F2342324437-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FE2A1Xrcj7XasxOiotWky%252Fuploads%252FHkqGvdaJxndhC8uhzLw0%252Frerwere.png%3Falt%3Dmedia%26token%3D796599d0-6785-4cd2-ad6a-bad02d062f45&width=768&dpr=4&quality=100&sign=c26f7d49&sv=2)
 
-This means that 41M BaseD must be removed from the system before it would reach you. However, this number is relative, and you also need to consider recent redemption activity. While past events don't guarantee future outcomes, they can serve as a useful guide.
+This means that 41M BD must be removed from the system before it would reach you. However, this number is relative, and you also need to consider recent redemption activity. While past events don't guarantee future outcomes, they can serve as a useful guide.
 
-For example, if only 200K BaseD were redeemed in the last week, you're comparatively safer than if 15M were redeemed. 
+For example, if only 200K BD were redeemed in the last week, you're comparatively safer than if 15M were redeemed.
 
-**The price of BaseD** is the second crucial factor. When it trades above $1, redemptions become unprofitable and should cease. If demand for BaseD is strong, it could maintain a price above $1 for an extended period.
+**The price of BD** is the second crucial factor. When it trades above $1, redemptions become unprofitable and should cease. If demand for BD is strong, it could maintain a price above $1 for an extended period.
 
 During such times, you can comfortably reduce the interest rate you're paying without increasing your risk of redemption.
 
-**Collateral Choice**: If you want zero redemption risk, consider using LP token collateral instead of standard collateral. LP token branches are not redeemable but have their own risk profile (impermanent loss, lower LTV).
+**Branch Choice**: A non-redeemable branch is excluded from normal Collateral Registry redemptions, regardless of whether its collateral is an LP token.
 
 ### What is delegation of interest rates?
 
-Interest rate delegation is a feature in Liquity V2 and BaseD that allows borrowers to delegate the management of their interest rate to a third party. This enables them to create a passive, hands-off position, while still keeping a competitive rate and low redemption risk.
+Interest rate delegation is a feature in Liquity V2 and BaseDollar that allows borrowers to delegate the management of their interest rate to a third party. This enables them to create a passive, hands-off position, while still keeping a competitive rate and low redemption risk.
 
 There are three types of delegations:
 
@@ -145,47 +136,47 @@ Borrowers should thus keep an eye on the interest rate range and the maximum upd
 
 | Entity | Collateral Assets | Delegation Info | Description |
 | ------ | ---------------- | ---------------- | ----------- |
-| TBD | All standard assets on BaseD | TBD | Interest rate delegation providers coming soon. |
+| TBD | All configured assets | TBD | Interest rate delegation providers coming soon. |
 |        |                  |                  |             |
 
-_Note that neither Liquity AG nor BaseD are responsible for the actions of any delegates. Please do your own research._
+_Note that neither Liquity AG nor BaseDollar are responsible for the actions of any delegates. Please do your own research._
 
-### What happens if there are issues with the smart contract for delegating interest rates? 
+### What happens if there are issues with the smart contract for delegating interest rates?
 
 Your Trove would not be affected - the only thing would get affected is the interest rate at which your position is set.
 
-### Why are redemptions not a feature of both LTV & interest rate, but only interest rate? 
+### Why are redemptions not a feature of both LTV & interest rate, but only interest rate?
 
-Given that the _raison d'etre_ for redemptions is to diminish BaseD supply in response to reduced demand, and interest rates drive demand, rate-based redemption processing is a more sustainable and effective lever to reach market equilibrium. Actively managing for both interest rate and LTV would weaken the ability to enforce market-level interest rates and deposit yields, while complicating the process for the system and its users
+Given that the _raison d'etre_ for redemptions is to diminish BD supply in response to reduced demand, and interest rates drive demand, rate-based redemption processing is a more sustainable and effective lever to reach market equilibrium. Actively managing for both interest rate and LTV would weaken the ability to enforce market-level interest rates and deposit yields, while complicating the process for the system and its users
 
-### What's the difference in redemption fees charged between Liquity V1 and BaseDollar? 
+### What's the difference in redemption fees charged between Liquity V1 and BaseDollar?
 In v2, when borrowers are affected by redemptions, the redemption fee charged to the redeemer stays within the affected Troves instead of being diverted as in Liquity.
 
 So, in Liquity the `borrower_loss = redemption_fee + redeemer_gain`, while in BaseDollar it's `borrower_loss = redeemer_gain`.
 
 ### What happens when redemptions cause a debt of a Trove to fall below the minimum amount?
 
-If the redeemed amount exceeds the debt of an affected Trove, it doesn't get closed as in Liquity V1, but remains open with 0 BaseD debt and the remaining collateral. The owner of a fully redeemed Trove may close it by withdrawing the remaining collateral, or borrow again to bring its debt above the minimum of 200 BaseD, topping up its collateral if needed.
+If the redeemed amount exceeds the debt of an affected Trove, it doesn't get closed as in Liquity V1, but remains open with 0 BD debt and the remaining collateral. The owner of a fully redeemed Trove may close it by withdrawing the remaining collateral, or borrow again to bring its debt above the minimum of 200 BD, topping up its collateral if needed.
 
-In the scenario that the redeemed amount of a Trove does not exceed the debt of a Trove, but would leave it between 0 and 200 BaseD, the Trove would remain open with the remaining debt, and the remaining collateral. The owner of the Trove may close it by paying off the remaining debt and withdrawing the remaining collateral, or borrow anew as described above.
+In the scenario that the redeemed amount of a Trove does not exceed the debt of a Trove, but would leave it between 0 and 200 BD, the Trove would remain open with the remaining debt, and the remaining collateral. The owner of the Trove may close it by paying off the remaining debt and withdrawing the remaining collateral, or borrow anew as described above.
 
-### How to redeem BaseD for collateral (mix of wETH, cbBTC, wstETH, superOETHb) using the blockchain explorer
+### How to redeem BD for collateral using the blockchain explorer
 
 **Step 1**
 
-To redeem BaseD you first have to give the CollateralRegistry contract an approval to use your BaseD using the approve() function of the BaseD token contract.
+To redeem BD you first have to give the CollateralRegistry contract an approval to use your BD using the approve() function of the BD token contract.
 
 After connecting your wallet through "Connect to Web3", set\
 spender to `CollateralRegistry address`and the amount to be at least as high as the amount you wish to redeem, adding 18 zeros.
 
-**Example for 1000 BaseD:**
+**Example for 1000 BD:**
 
 ![](https://docs.liquity.org/~gitbook/image?url=https%3A%2F%2F2342324437-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FE2A1Xrcj7XasxOiotWky%252Fuploads%252FyfWVv0gTWqCfg3YWYder%252Fred1.png%3Falt%3Dmedia%26token%3Dc05978b8-7946-4828-b81c-e7256bfeb0ce&width=768&dpr=4&quality=100&sign=b9753e68&sv=2)
 
 **Step 2**\
-You can now redeem BaseD using the `CollateralRegistry` contract:
+You can now redeem BD using the `CollateralRegistry` contract:
 
-[(insert CollateralRegistry address after deployment)](#)Simply input the BaseD amount to redeem, the redemption fee percentage you are willing to accept and the maximum number of list iterations per collateral (limits the number of troves whose debt can be repaid on each branch).
+[(insert CollateralRegistry address after deployment)](#)Simply input the BD amount to redeem, the redemption fee percentage you are willing to accept and the maximum number of list iterations per collateral (limits the number of troves whose debt can be repaid on each branch).
 
 Note: The redemption fee must be higher than the current fee.
 

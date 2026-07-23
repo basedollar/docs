@@ -6,7 +6,7 @@ sidebar_position: 7
 
 ## Overview
 
-When borrowers deposit Aerodrome LP tokens as collateral, those LPs are automatically staked to earn AERO rewards. The protocol takes a 35% tax on AERO as interest, with 65% going to the borrower.
+When borrowers deposit Aerodrome LP tokens as collateral, those LPs are automatically staked to earn AERO rewards. AeroManager charges a 10% default claim fee, capped at 20%, and sends it to the configured treasury.
 
 ## Distribution Split
 
@@ -14,44 +14,28 @@ When borrowers deposit Aerodrome LP tokens as collateral, those LPs are automati
 
 | Recipient | Share | Description |
 |-----------|-------|-------------|
-| Borrower | 65% | Keeps majority of AERO |
-| Protocol Tax | 35% | Protocol interest |
+| Treasury fee | 10% by default | Capped at 20% |
+| Borrower rewards | Remaining AERO | Allocated through reward epochs |
 
-### Protocol's 35% Tax Split
+### Reward Allocation
 
-| Recipient | % of Tax | % of Total AERO |
-|-----------|----------|-----------------|
-| POL Treasury | 80% | 28% |
-| FsBaseD | 10% | 3.5% |
-| BaseD Stakers | 10% | 3.5% |
+After the treasury fee, the remaining AERO is allocated to borrowers through reward epochs.
 
 ## Protocol Owned Liquidity (POL) Strategy
 
-The protocol earns 28% of all AERO farmed:
-
-1. Locks AERO as veAERO
-2. Votes for sAMM_BaseD/BOLD & vAMM_BASED/ETH pools
-3. Collects trading fees and bribes
-4. Compounds fees into more POL
+A fixed veAERO voting or POL strategy is not implemented in the current contracts.
 
 ## Revenue Flows
 
-### Standard Branches (wETH, cbBTC, wstETH, superOETHb)
+### BD Interest
 
-BaseD interest split:
-- 80% → sBaseD
-- 10% → POL Treasury
-- 10% → BaseD Stakers
+All branches use user-set BD interest rates. Interest and upfront fees are split 75% to the branch Stability Pool and 25% to the configured interest router.
 
-### LP Token Branches (vAMM/sAMM pairs)
+### LP Token Branches
 
-35% AERO tax split:
-- 80% → POL Treasury (28% of total)
-- 10% → FsBaseD (3.5% of total)
-- 10% → BaseD Stakers (3.5% of total)
+AeroManager handles gauge staking, the treasury claim fee, and borrower reward epochs.
 
 ## Additional Resources
 
-- [FsBaseD Pool](/docs/user-docs/fsbased-pool)
 - [LP Token Collaterals](/docs/user-docs/lp-token-collaterals)
 - [Governance](/docs/user-docs/governance)

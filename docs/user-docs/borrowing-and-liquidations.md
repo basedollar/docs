@@ -6,11 +6,11 @@ sidebar_position: 2
 
 ### What makes borrowing on BaseDollar so unique?
 
-BaseDollar allows users to borrow the stablecoin BaseD with two distinct collateral types:
+BaseDollar allows users to borrow the stablecoin Base Dollar (BD) with two distinct collateral types:
 
-**Standard Collaterals**: Borrowers can choose and adjust the rate they are willing to pay for their loans (0%, 5%, 20%, etc.). Borrowers will establish market rates in accordance with their individual risk tolerance without relying on governance or algorithm rate management.
+**Standard Collaterals**: Borrowers can choose and adjust the rate they are willing to pay for their loans (0.5%, 5%, 20%, etc.). Borrowers will establish market rates in accordance with their individual risk tolerance without relying on governance or algorithm rate management.
 
-**LP Token Collaterals**: Deposit Aerodrome LP tokens and pay interest via AERO farming tax. LP tokens are auto-staked in Aerodrome gauges, earning AERO rewards. Borrowers forfeit a percentage of the AERO farmed as interest, while keeping the majority of rewards. **LP branches have no redemption**.
+**LP Token Collaterals**: The contracts support Aerodrome LP-token branches. AeroManager stakes LP collateral in configured gauges and handles AERO rewards. Borrowers still set a BD interest rate, and redeemability is configured per branch.
 
 Each collateral has its own respective borrow market which allows room for a market of rates to develop.
 
@@ -20,7 +20,7 @@ All of this makes for a highly capital efficient, secure and decentralized borro
 
 When a borrower deposits collateral, a Trove is created.
 
-A **Trove** is BaseD's version of a 'vault'. Each Trove has a particular address owner, and each owner can have multiple Troves.
+A **Trove** is BaseDollar's version of a 'vault'. Each Trove has a particular address owner, and each owner can have multiple Troves.
 
 Each Trove can only have 1 type of collateral deposited in it.
 
@@ -29,13 +29,13 @@ flowchart LR
     A["User"] -- Deposit ETH --> B("Create Trove")
     B --> C("Set Rate, Collateral, and Debt")
     C -- Delegate --> D("Manager")
-    
+
     A -- Deposit LP Token --> E("Create Trove")
     E --> F("Auto-stake for AERO")
     F --> G("Earn AERO rewards")
 ```
 
-Each Trove allows you to manage a loan, adjusting collateral and debt values as needed. For standard collaterals, you set your own interest rate. For LP tokens, interest is paid via AERO farming. Trove management can optionally be delegated to a "Manager" with special permissions.
+Each Trove allows you to manage a loan, adjusting collateral and debt values as needed. Borrowers set their own interest rate on every branch, including LP-token branches. Trove management can optionally be delegated to a "Manager" with special permissions.
 
 Troves are also transferable NFTs found in the wallet of the owner. Be cautious: transferring the NFT also transfers the ownership of the position.
 
@@ -43,36 +43,25 @@ Troves are also transferable NFTs found in the wallet of the owner. Be cautious:
 
 BaseDollar works with two types of collateral:
 
-#### Standard Collaterals (Single Assets)
+#### Current Configured Collaterals
 
-- **wETH** (90.91% LTV)
-- **cbBTC** (87.5% LTV)
-- **wstETH** (87.5% LTV)
-- **superOETHb** (85% LTV)
+- **WETH** (90.91% max LTV)
+- **wstETH** (83.33% max LTV)
+- **rETH** (83.33% max LTV)
+- **cbBTC** (90.91% max LTV)
+- **cbETH** (83.33% max LTV)
+- **AERO** (66.67% max LTV)
 
 #### LP Token Collaterals (Aerodrome Pairs)
 
-**sAMM (Stable) Pairs - 82.5% LTV:**
-- wETH/msETH
-- msUSD/USDC
-- BaseD/USDC
-- BaseD/LUSD
-
-**vAMM (Volatile) Pairs - 70% LTV:**
-- USDC/AERO
-- USDC/ETH
-- wETH/WELL
-- VIRTUAL/wETH
-- wETH/cbBTC
-- wETH/AERO
-- VIRTUAL/cbBTC
+The first Aerodrome LP-token collateral branches are coming soon.
 
 :::tip
 **LP Token Benefits**:
-- Zero redemption risk (LP branches not redeemable)
+- Redeemability configured per branch
 - Earn AERO rewards while borrowing
 - Auto-staking in Aerodrome gauges
-- Interest paid via AERO farming
+- User-set BD interest, with AERO rewards handled separately
 
 See [LP Token Collaterals](/docs/user-docs/lp-token-collaterals) for details.
 :::
@@ -83,7 +72,7 @@ New collateral types can be added by governance. Existing ones can be removed, a
 
 ### Is there a minimum debt?
 
-Yes, a minimum debt of 200 BaseD is required for borrowing.
+Yes, a minimum debt of 200 BD is required for borrowing.
 
 ### When do I need to pay back my loan?
 
@@ -101,11 +90,10 @@ This depends on your personal preferences, primarily your risk tolerance and how
 
 **Key considerations**:
 - **Standard collaterals**: Higher LTV (up to 90.91% for wETH)
-- **sAMM LP tokens**: Medium LTV (82.5%)
-- **vAMM LP tokens**: Lower LTV (70% - due to volatility)
+- **LP-token branches**: LTV is configured per branch
 
 :::tip
-We may display BOLD or BaseD in graphics borrowed from Liquity documentation.
+We may display BOLD or BD in graphics borrowed from Liquity documentation.
 :::
 
 ![](https://docs.liquity.org/~gitbook/image?url=https%3A%2F%2F2342324437-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FE2A1Xrcj7XasxOiotWky%252Fuploads%252FKYV7j08QhkPfeWdSZCE5%252Fltv_preset.png%3Falt%3Dmedia%26token%3D98dda88c-18ee-4993-9993-ece6d9242a86&width=768&dpr=4&quality=100&sign=6093ec1&sv=2)
@@ -130,14 +118,7 @@ Stability Pool depositors earn the liquidation fees in the liquidated collateral
 
 #### LP Token Liquidations
 
-LP token branches use the **FsBaseD aggregated pool** instead of individual stability pools:
-
-- **Single pool** covers ALL LP token types (vAMM + sAMM)
-- No individual SP associated with sAMM & vAMM LPs (easier maintenance)
-- FsBaseD is an opt-in layer on sBaseD
-- Depositors earn AERO rewards + liquidation gains
-
-See [FsBaseD Pool](/docs/user-docs/fsbased-pool) for details.
+Each LP-token branch has its own Stability Pool. AeroManager allows LP collateral to remain gauge-staked while protocol pools account for liquidation gains.
 
 #### Fallback Liquidation Mechanisms
 
@@ -163,17 +144,18 @@ LTV depends on the collateral type you use:
 
 | Asset | Max LTV | MCR |
 |-------|---------|-----|
-| wETH | 90.91% | 110% |
-| cbBTC | 87.5% | 114.3% |
-| wstETH | 87.5% | 114.3% |
-| superOETHb | 85% | 117.6% |
+| WETH | 90.91% | 110% |
+| wstETH | 83.33% | 120% |
+| rETH | 83.33% | 120% |
+| cbBTC | 90.91% | 110% |
+| cbETH | 83.33% | 120% |
+| AERO | 66.67% | 150% |
 
 #### LP Token Collaterals
 
 | Type | Max LTV | MCR | Pairs |
 |------|---------|-----|-------|
-| sAMM (Stable) | 82.5% | 121.2% | wETH/msETH, msUSD/USDC, BaseD/USDC, BaseD/LUSD |
-| vAMM (Volatile) | 70% | 142.9% | USDC/AERO, USDC/ETH, wETH/WELL, etc. |
+| Coming soon | Branch-specific | Branch-specific | Initial LP pairs will be announced before launch |
 
 :::warning
 LP token LTV is lower due to:
@@ -192,41 +174,27 @@ Payment depends on your collateral type:
 
 #### Standard Collaterals
 
-On BaseD, there are no upfront fees for standard collaterals. Instead, you pay interest on an ongoing basis, making it suitable for short-term loans. When creating a new position or increasing the amount borrowed, borrowers pay the first week of interest up front to prevent arbitrage.
+On BaseDollar, there are no upfront fees for standard collaterals. Instead, you pay interest on an ongoing basis, making it suitable for short-term loans. When creating a new position or increasing the amount borrowed, borrowers pay the first week of interest up front to prevent arbitrage.
 
-The interest you pay is determined by the rate you set yourself. For example, if you borrow 10,000 BaseD at a 5% interest rate, you'll pay ~500 BaseD in interest after one year. This interest is added to your outstanding debt.
+The interest you pay is determined by the rate you set yourself. For example, if you borrow 10,000 BD at a 5% interest rate, you'll pay ~500 BD in interest after one year. This interest is added to your outstanding debt.
 
 #### LP Token Collaterals
 
-For LP tokens, interest is paid via **AERO farming**:
-
-- LP tokens auto-staked in Aerodrome gauges
-- Earn AERO rewards continuously
-- **Borrowers forfeit a percentage** of AERO farmed as interest
-- **Keep the majority** of AERO rewards
-- No user-set interest rate needed
-
-This is a unique interest mechanism where you continue earning rewards while borrowing!
+LP-token borrowers set a BD interest rate like borrowers in other branches. AeroManager separately stakes LP collateral and handles AERO rewards.
 
 See [LP Token Collaterals](/docs/user-docs/lp-token-collaterals) and [AERO Distribution](/docs/technical-documentation/aero-distribution) for more details.
 
-### What are user-set rates? (Standard Collaterals Only)
+### What are user-set rates?
 
-On BaseD, users with **standard collaterals** set their own interest rates, giving them full control over costs and improving predictability.
+On BaseDollar, users set their own interest rates, giving them full control over costs and improving predictability.
 
-:::info
-**LP Token Note**: LP token borrowers do NOT set interest rates. Interest is automatically paid via AERO farming tax.
-:::
-
-User-set interest rates facilitate a capital-efficient equilibrium between BaseD borrowers and holders in a fully market-driven manner. These rates serve as the primary revenue source for BaseD holders, generating continuous, sustainable real yield for BaseD depositors.
+User-set interest rates facilitate a capital-efficient equilibrium between BD borrowers and holders in a fully market-driven manner. These rates serve as the primary revenue source for BD holders, generating continuous, sustainable real yield for BD depositors.
 
 Borrowers should set their rates based on their [redemption](/docs/user-docs/redemption-and-delegation#what-are-redemptions) risk tolerance.
 
 ### Can I adjust the rate?
 
-**Standard Collaterals**: Yes, you can always adjust your interest rate at any time.
-
-**LP Token Collaterals**: No rate adjustment needed. Interest is automatically paid via AERO farming.
+Borrowers can adjust their interest rate, subject to the normal branch rules and fees.
 
 Note however, for standard collaterals, a fee corresponding to 7 days of average interest is charged when opening the loan, as well as on any rate adjustments that happen less than 7 days after the last adjustment.
 
@@ -234,7 +202,7 @@ Note however, for standard collaterals, a fee corresponding to 7 days of average
 
 Setting an interest rate determines your redemption risk and needs to be aligned with your goals and how actively you want to manage your position.
 
-**Alternative**: Use LP token collateral instead for **zero redemption risk** (LP branches are not redeemable).
+A branch registered as non-redeemable is excluded from normal redemptions; LP collateral alone does not determine that setting.
 
 Users can also decide to delegate interest rate management to a third party, who can set your interest rate and charge a fee for this service.
 
@@ -246,7 +214,7 @@ Since redemptions are performed in ascending order of interest rate (for the res
 
 These will be set continuously by the market and will vary over time.
 
-Given that 80% of the interest revenue is paid out to BaseD depositors, we expect that stablecoin deposit yields should be competitive with or higher than other platforms.
+Given that 75% of the interest revenue is paid out to BD Stability Pool depositors, we expect that stablecoin deposit yields should be competitive with or higher than other platforms.
 
 ### What determines the riskiness of my Trove?
 
@@ -261,7 +229,7 @@ There are two to three key parameters to consider:
 
 * **Loan-to-value (LTV)**: Based on LP token value and affects liquidation risk
 * **Impermanent Loss**: LP tokens subject to IL based on underlying assets
-* **No Redemption Risk**: LP branches are NOT redeemable (major advantage!)
+* **Redemption Setting**: Configured per branch
 
 You have flexibility to set these parameters as you see fit, allowing you to control the relative riskiness of each Trove. You can create multiple Troves under the same address, enabling different risk profiles for different portions of your portfolio.
 
@@ -269,7 +237,7 @@ You have flexibility to set these parameters as you see fit, allowing you to con
 
 **Standard Collaterals**: A "premature adjustment fee" is charged on interest rate changes that happen within less than 7 days since the last adjustment (or the opening of the Trove). The fee equals 7 days of average interest on the respective borrow market. The same fee is charged when a new Trove is opened or when its debt is increased.
 
-**LP Token Collaterals**: No premature adjustment fees (no rate adjustment capability). Interest is automatically paid via AERO farming.
+**LP Token Collaterals**: Use the same interest-rate adjustment model as other branches.
 
 ### How many Troves (loans) can I open with the same address?
 
@@ -288,9 +256,9 @@ Please note that selling Troves on secondary markets comes with inherent risks, 
 
 ### How do I loop my exposure?
 
-Looping allows you to borrow BaseD against your deposited collateral and use it to buy more collateral, increasing your exposure to the underlying asset. BaseDollar has built-in automation to achieve this with one click (zappers).
+Looping allows you to borrow BD against your deposited collateral and use it to buy more collateral, increasing your exposure to the underlying asset. BaseDollar has built-in automation to achieve this with one click (zappers).
 
-**LP Token Note**: Looping LP positions requires buying more LP tokens with borrowed BaseD, then depositing them as additional collateral.
+**LP Token Note**: Looping LP positions requires buying more LP tokens with borrowed BD, then depositing them as additional collateral.
 
 Make sure you choose a frontend that supports this functionality, and be mindful of liquidity/slippage.
 
@@ -306,13 +274,13 @@ BaseDollar has separate borrow markets for each collateral type with their own l
 
 **LP Token Collaterals**:
 - Segregated branches with capped debt limits
-- FsBaseD aggregated pool for all LP liquidations
-- **Not subject to redemptions** (protected)
-- Conservative LTV factors (70-82.5%)
+- Individual Stability Pool for each LP branch
+- Redeemability configured per branch
+- Branch-specific collateral ratios
 
 Risks are mitigated through:
 - Temporary borrowing restrictions in times of low collateralization
-- Redemption logic prioritizing under-backed collateral (standard only)
+- Redemption logic prioritizing under-backed collateral across redeemable branches
 - Collateral shutdown as emergency measure
 - Segregation of LP token branches
 
@@ -323,22 +291,20 @@ Keep in mind that despite all these measures, BaseDollar remains dependent on th
 This depends on the party in question:
 
 * **Borrowers**: Collateral risk is limited to the collateral asset held by the borrower. A borrower isn't negatively affected by failure of another collateral asset.
-* **BaseD Holders**: As a multi-collateral stablecoin, BaseD is reliant on effective liquidations of undercollateralized loans in every borrow market to remain overcollateralized. Holders are subject to the risks of all supported collateral assets.
-* **Earners**: 
+* **BD Holders**: As a multi-collateral stablecoin, BD is reliant on effective liquidations of undercollateralized loans in every borrow market to remain overcollateralized. Holders are subject to the risks of all supported collateral assets.
+* **Earners**:
   - Individual SP depositors get exposure only to their chosen asset
-  - sBaseD depositors get diversified exposure to all standard collaterals
-  - FsBaseD depositors get exposure to all LP token types
-  - All earners are BaseD holders and subject to potential depegging
+  - All earners are BD holders and subject to potential depegging
 
 ### What mechanisms are in place if the Stability Pool is empty?
 
-If the Stability Pool (or FsBaseD for LP tokens) doesn't cover the full debt and gets completely emptied by liquidation, the system falls back to:
+If the branch Stability Pool doesn't cover the full debt and gets completely emptied by liquidation, the system falls back to:
 
 The liquidator can freely choose between two fallback liquidation modes for the debt exceeding the funds in the pool:
 
-1. **Just-in-time (JIT) liquidation**: The liquidator sends an amount of BaseD corresponding to the (remaining) debt in exchange for 105% of its nominal value in the collateral asset.
+1. **Just-in-time (JIT) liquidation**: The liquidator sends an amount of BD corresponding to the (remaining) debt in exchange for 105% of its nominal value in the collateral asset.
 2. **Redistribution**: The liquidator triggers a redistribution, through which the Trove's entire debt and collateral is redistributed to all fellow borrowers of the respective collateral market, in proportion to their own collateral amounts.
 
 ### Shutdown Borrow Markets
 
-The system may shut down borrow markets whose total collateralization ratio (TCR) falls below the minimum threshold for each collateral type. The shutdown is performed by incentivizing redemptions against the respective collateral (standard collaterals only - LP branches cannot be shut down via redemptions).
+The system may shut down borrow markets whose total collateralization ratio (TCR) falls below the minimum threshold for each collateral type. The shutdown is performed by incentivizing redemptions against the respective collateral (urgent redemptions remain available directly through the shut-down branch).

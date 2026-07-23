@@ -24,12 +24,12 @@ BaseDollar Protocol is designed to be as limited and decentralized as possible. 
 2. How to direct protocol revenue (POL management, veAERO voting).
 3. Adding/removing collateral types.
 
-BaseD can NEVER be minted by BaseDollar governance.
+BD can NEVER be minted by BaseDollar governance.
 The percentage of fees that are directed to the stability pool can NOT be changed by BaseDollar governance.
 
 ### Base Network
 
-BaseDollar is dependent on the security of Base. If there is ever a critical issue with Base or Ethereum L1 that could affect the safety of BaseD.
+BaseDollar is dependent on the security of Base. If there is ever a critical issue with Base or Ethereum L1 that could affect the safety of BD.
 
 ### Collaterals
 

@@ -12,7 +12,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 const config = {
   title: "BaseDollar Documentation",
   tagline: "Liquity V2 fork on Base with LP token collateral and AERO farming revenue.",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon.svg",
 
   // Set the production url of your site here
   url: "https://docs.basedollar.org",
