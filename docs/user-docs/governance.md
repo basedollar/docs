@@ -36,7 +36,7 @@ TBD
 
 ## Protocol Owned Liquidity (POL)
 
-BaseDollar uses Protocol Owned Liquidity instead of Protocol Incentivized Liquidity (PIL).
+Base Dollar uses Protocol Owned Liquidity instead of Protocol Incentivized Liquidity (PIL).
 
 ### POL Treasury Revenue
 
@@ -61,6 +61,6 @@ The treasury locks AERO as veAERO to support pools and establish permanent liqui
 
 AeroManager charges a 10% default claim fee, capped at 20%, and sends it to the configured treasury. Remaining rewards are allocated to borrowers through reward epochs.
 
-### BaseDollar AERO Strategy
+### Base Dollar AERO Strategy
 
 A fixed veAERO voting or POL allocation strategy is not implemented in the current contracts.

@@ -6,7 +6,7 @@ sidebar_position: 3
 
 ### What is BD?
 
-Base Dollar (BD) is the USD-pegged stablecoin issued by the BaseDollar Protocol. It's decentralized, overcollateralized, and backed only by a basket of crypto native assets.
+Base Dollar (BD) is the USD-pegged stablecoin issued by the Base Dollar Protocol. It's decentralized, overcollateralized, and backed only by a basket of crypto native assets.
 
 BD is a resilient stablecoin by design:
 
@@ -23,7 +23,7 @@ BD is a resilient stablecoin by design:
 
 ### What is BD's peg mechanism?
 
-BaseDollar uses Liquity V2's market-driven monetary policy through user-set interest rates to maintain BD's peg and to dynamically respond to situations where the token is above or below $1.00.
+Base Dollar uses Liquity V2's market-driven monetary policy through user-set interest rates to maintain BD's peg and to dynamically respond to situations where the token is above or below $1.00.
 
 When BD trades above $1, borrowers tend to reduce their rates due to lower redemption risk, making borrowing more and holding BD less attractive. This helps correct the price downwards.
 
@@ -53,7 +53,7 @@ There is no lockup period. Users are free to withdraw their BD deposits from the
 
 ### What is the estimated yield on Earn?
 
-The yield is a representation of the rates borrowers are paying. Since 75% of the borrowers' interest payments go to Earn, the effective yield can exceed the average interest rate paid in a borrow market if less than 80% of the BD supply is deposited to the respective Stability Pool. This yield amplification sets Liquity V2 and BaseDollar apart from competitors and money markets where lending rates cannot be higher than borrow rates.
+The yield is a representation of the rates borrowers are paying. Since 75% of the borrowers' interest payments go to Earn, the effective yield can exceed the average interest rate paid in a borrow market if less than 80% of the BD supply is deposited to the respective Stability Pool. This yield amplification sets Liquity V2 and Base Dollar apart from competitors and money markets where lending rates cannot be higher than borrow rates.
 
 Check historic rates on Liquity V2 [here](https://dune.com/liquity/liquity-v2#interest-rates).
 
@@ -64,7 +64,7 @@ The goals are to:
 * Establish separate borrow markets for different collateral assets with their own market driven interest rates, using the Stability Pool backing to dynamically split redemptions across the available collaterals (link to "Redemption").
 * Compartmentalize the risks as much as possible when depositing to the respective Stability Pools (Earn) by giving the depositors control over which collateral assets they want exposure to in case of liquidations.
 
-### How have Stability Pools evolved in Liquity based systems like BaseDollar, from Liquity V1 to V2?
+### How have Stability Pools evolved in Liquity based systems like Base Dollar, from Liquity V1 to V2?
 
 In V2, the concept of Stability Pools is expanded to accommodate multiple collateral types, keeping the interest revenue and liquidations proceeds inside the respective borrow market (collateral). Each collateral asset thus has its own Stability Pool to distribute yield to BD depositors.
 

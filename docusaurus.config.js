@@ -10,7 +10,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "BaseDollar Documentation",
+  title: "Base Dollar Documentation",
   tagline: "Liquity V2 fork on Base with LP token collateral and AERO farming revenue.",
   favicon: "img/favicon.svg",
 
@@ -128,7 +128,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} BaseDollar. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Base Dollar. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

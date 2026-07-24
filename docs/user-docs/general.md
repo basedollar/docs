@@ -6,9 +6,9 @@ sidebar_position: 1
 # General
 
 ### What is Base Dollar?
-Base Dollar is a decentralized borrowing protocol that lets users deposit WETH, wstETH, rETH, cbBTC, cbETH, AERO, and Aerodrome LP tokens as collateral, and mint the stablecoin BaseD at an interest rate depositors choose. BaseDollar is a Liquity V2 fork built specifically for Base with innovative LP token collateral and AERO farming revenue.
+Base Dollar is a decentralized borrowing protocol that lets users deposit WETH, wstETH, rETH, cbBTC, cbETH, AERO, and Aerodrome LP tokens as collateral, and mint the stablecoin BaseD at an interest rate depositors choose. Base Dollar is a Liquity V2 fork built specifically for Base with innovative LP token collateral and AERO farming revenue.
 
-### The main use-cases for BaseDollar are:
+### The main use-cases for Base Dollar are:
 
 - Borrow BD
 - Earn yield by depositing BD in the stability pools
@@ -32,7 +32,7 @@ To understand Base Dollar, it's helpful to understand [Liquity](https://www.liqu
 |Redemption of stablecoins for underlying collateral maintains the $1.00 peg no matter what| Troves are now transferable|
 |ETH Mainnet Only|V1’s code was free and open-sourced (FOSS), while with V2, Liquity will have its code set as a business source license (BUSL)|
 
-### BaseDollar vs Liquity V2
+### Base Dollar vs Liquity V2
 | Key Differences | Description  |
 |--|--|
 | **Blockchain** | Base (Ethereum L2) vs Ethereum Mainnet |
@@ -42,8 +42,8 @@ To understand Base Dollar, it's helpful to understand [Liquity](https://www.liqu
 | **Branch Redeemability** | Each branch is registered as redeemable or non-redeemable; LP collateral is not automatically protected. |
 | **Revenue Distribution** | 75% to the branch Stability Pool and 25% to the configured interest router. |
 
-## Does BaseDollar have governance?
-BaseDollar currently uses governor roles rather than a deployed governance token. Planned governance scope includes:
+## Does Base Dollar have governance?
+Base Dollar currently uses governor roles rather than a deployed governance token. Planned governance scope includes:
 - Distributing Protocol Owned Liquidity (POL)
 - Directing protocol revenue and AERO rewards
 - Managing fees, LTV requirements, and minimum debt thresholds
@@ -56,13 +56,13 @@ A BASED governance-token and staking system is not deployed by the active deploy
 
 ## Other Helpful Resources:
 
-BaseDollar App:
+Base Dollar App:
 https://app.basedollar.org/
 
-BaseDollar Website:
+Base Dollar Website:
 https://basedollar.org/
 
-BaseDollar Github:
+Base Dollar Github:
 https://github.com/basedollar
 
 Base Block Explorer:
@@ -75,5 +75,5 @@ Liquity V2 Documentation:
 https://docs.liquity.org/
 
 Community:
-- Discord: TBD
-- X/Twitter: TBD
+- Discord: https://discord.gg/5h3avBYxcn
+- X/Twitter: https://x.com/BaseDollarOrg

@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# BaseDollar Contracts
+# Base Dollar Contracts
 
 **Network:** Base (Chain ID: 8453)
 **Deployment:** TBD

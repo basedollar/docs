@@ -10,11 +10,11 @@ Technical documentation and code repository information for developers.
 
 **GitHub**: https://github.com/basedollar/basedollar
 
-Contains the core contracts and libraries for the BaseDollar Protocol. Also includes the front end and everything you need to run your own instance of the app.
+Contains the core contracts and libraries for the Base Dollar Protocol. Also includes the front end and everything you need to run your own instance of the app.
 
 The README will also have more design and architecture information.
 
-## Tech spec changes on BaseDollar from Liquity V2
+## Tech spec changes on Base Dollar from Liquity V2
 
 ### More collaterals and debt limits
 

@@ -4,9 +4,9 @@ sidebar_position: 2
 
 # Borrowing and Liquidations
 
-### What makes borrowing on BaseDollar so unique?
+### What makes borrowing on Base Dollar so unique?
 
-BaseDollar allows users to borrow the stablecoin Base Dollar (BD) with two distinct collateral types:
+Base Dollar allows users to borrow the stablecoin Base Dollar (BD) with two distinct collateral types:
 
 **Standard Collaterals**: Borrowers can choose and adjust the rate they are willing to pay for their loans (0.5%, 5%, 20%, etc.). Borrowers will establish market rates in accordance with their individual risk tolerance without relying on governance or algorithm rate management.
 
@@ -20,7 +20,7 @@ All of this makes for a highly capital efficient, secure and decentralized borro
 
 When a borrower deposits collateral, a Trove is created.
 
-A **Trove** is BaseDollar's version of a 'vault'. Each Trove has a particular address owner, and each owner can have multiple Troves.
+A **Trove** is Base Dollar's version of a 'vault'. Each Trove has a particular address owner, and each owner can have multiple Troves.
 
 Each Trove can only have 1 type of collateral deposited in it.
 
@@ -39,9 +39,9 @@ Each Trove allows you to manage a loan, adjusting collateral and debt values as 
 
 Troves are also transferable NFTs found in the wallet of the owner. Be cautious: transferring the NFT also transfers the ownership of the position.
 
-### What types of collateral can I use on BaseDollar?
+### What types of collateral can I use on Base Dollar?
 
-BaseDollar works with two types of collateral:
+Base Dollar works with two types of collateral:
 
 #### Current Configured Collaterals
 
@@ -104,15 +104,15 @@ If your LTV becomes too high, your position will be liquidated.
 
 > LTV = Loan to Value. An LTV of 50% means that if you borrowed $100, your collateral is worth $200.
 
-### How do Liquidations work in BaseDollar?
+### How do Liquidations work in Base Dollar?
 
-BaseDollar uses oracles (TBD - specific oracle provider) to maintain proper price feeds for our collaterals. Check out the [oracles](/docs/technical-documentation/oracles) section for more info.
+Base Dollar uses oracles (TBD - specific oracle provider) to maintain proper price feeds for our collaterals. Check out the [oracles](/docs/technical-documentation/oracles) section for more info.
 
 Troves get liquidated if the LTV goes above the maximum value for that collateral type.
 
 #### Standard Collateral Liquidations
 
-BaseDollar uses **individual Stability Pools** as the primary liquidation mechanism for standard collaterals. Each borrow-market has its own dedicated Stability Pool earning liquidation gains (in the respective collateral) in exchange for burning debt.
+Base Dollar uses **individual Stability Pools** as the primary liquidation mechanism for standard collaterals. Each borrow-market has its own dedicated Stability Pool earning liquidation gains (in the respective collateral) in exchange for burning debt.
 
 Stability Pool depositors earn the liquidation fees in the liquidated collateral (e.g., ETH, cbBTC).
 
@@ -174,7 +174,7 @@ Payment depends on your collateral type:
 
 #### Standard Collaterals
 
-On BaseDollar, there are no upfront fees for standard collaterals. Instead, you pay interest on an ongoing basis, making it suitable for short-term loans. When creating a new position or increasing the amount borrowed, borrowers pay the first week of interest up front to prevent arbitrage.
+On Base Dollar, there are no upfront fees for standard collaterals. Instead, you pay interest on an ongoing basis, making it suitable for short-term loans. When creating a new position or increasing the amount borrowed, borrowers pay the first week of interest up front to prevent arbitrage.
 
 The interest you pay is determined by the rate you set yourself. For example, if you borrow 10,000 BD at a 5% interest rate, you'll pay ~500 BD in interest after one year. This interest is added to your outstanding debt.
 
@@ -186,7 +186,7 @@ See [LP Token Collaterals](/docs/user-docs/lp-token-collaterals) and [AERO Distr
 
 ### What are user-set rates?
 
-On BaseDollar, users set their own interest rates, giving them full control over costs and improving predictability.
+On Base Dollar, users set their own interest rates, giving them full control over costs and improving predictability.
 
 User-set interest rates facilitate a capital-efficient equilibrium between BD borrowers and holders in a fully market-driven manner. These rates serve as the primary revenue source for BD holders, generating continuous, sustainable real yield for BD depositors.
 
@@ -256,7 +256,7 @@ Please note that selling Troves on secondary markets comes with inherent risks, 
 
 ### How do I loop my exposure?
 
-Looping allows you to borrow BD against your deposited collateral and use it to buy more collateral, increasing your exposure to the underlying asset. BaseDollar has built-in automation to achieve this with one click (zappers).
+Looping allows you to borrow BD against your deposited collateral and use it to buy more collateral, increasing your exposure to the underlying asset. Base Dollar has built-in automation to achieve this with one click (zappers).
 
 **LP Token Note**: Looping LP positions requires buying more LP tokens with borrowed BD, then depositing them as additional collateral.
 
@@ -264,7 +264,7 @@ Make sure you choose a frontend that supports this functionality, and be mindful
 
 ### How are collateral risks mitigated?
 
-BaseDollar has separate borrow markets for each collateral type with their own liquidation mechanisms:
+Base Dollar has separate borrow markets for each collateral type with their own liquidation mechanisms:
 
 **Standard Collaterals**:
 - Individual Stability Pools for efficient liquidations
@@ -284,7 +284,7 @@ Risks are mitigated through:
 - Collateral shutdown as emergency measure
 - Segregation of LP token branches
 
-Keep in mind that despite all these measures, BaseDollar remains dependent on the supported collateral assets and there is no strict guarantee that it remains overcollateralized in case of a sudden collapse of a collateral asset.
+Keep in mind that despite all these measures, Base Dollar remains dependent on the supported collateral assets and there is no strict guarantee that it remains overcollateralized in case of a sudden collapse of a collateral asset.
 
 ### How does the system compartmentalize risk among different collateral types?
 
