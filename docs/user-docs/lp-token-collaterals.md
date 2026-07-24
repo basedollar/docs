@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # LP Token Collaterals
 
-BaseDollar's contracts support Aerodrome LP tokens as collateral, with the first LP-token branches coming soon.
+Base Dollar's contracts support Aerodrome LP tokens as collateral, with the first LP-token branches coming soon.
 
 ## How It Works
 

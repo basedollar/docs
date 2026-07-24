@@ -9,7 +9,7 @@ const FeatureList = [
     icon: '/img/head1.svg',
     description: (
       <>
-        <Translate id="feature.redeemable.desc">Each stablecoin issued by BaseD is redeemable for $1 of collateral in the system.</Translate>
+        <Translate id="feature.redeemable.desc">Each stablecoin issued as BD is redeemable for $1 of collateral in the system.</Translate>
       </>
     ),
   },
@@ -18,7 +18,7 @@ const FeatureList = [
     icon: '/img/head2.svg',
     description: (
       <>
-        <Translate id="feature.streamable.desc">BaseD is built natively for Base L2.</Translate>
+        <Translate id="feature.streamable.desc">Base Dollar is built natively for Base L2.</Translate>
       </>
     ),
   },
@@ -27,7 +27,7 @@ const FeatureList = [
     icon: '/img/head3.svg',
     description: (
       <>
-        <Translate id="feature.sustainable.desc">BaseD yield is sustainable and comes from multiple sources including AERO farming. Revenue is shared between users, POL treasury, and BaseD stakers.</Translate>
+        <Translate id="feature.sustainable.desc">BD yield is sustainable and comes from multiple sources including AERO farming. Revenue is shared between users and treasury.</Translate>
       </>
     ),
   },

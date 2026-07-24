@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # Audit Reports
 
-BaseDollar security audits are in progress.
+Base Dollar security audits are in progress.
 
 ## Planned Audits
 
@@ -14,7 +14,7 @@ Audit reports will be published here when available.
 
 ## Liquity V2 Audits
 
-BaseDollar is built on Liquity V2's audited codebase. For Liquity V2 audit reports, see:
+Base Dollar is built on Liquity V2's audited codebase. For Liquity V2 audit reports, see:
 - [Liquity V2 Documentation](https://docs.liquity.org/v2-documentation)
 - [Liquity GitHub Repository](https://github.com/liquity/bold)
 

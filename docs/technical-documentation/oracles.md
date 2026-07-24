@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Oracles
 
-BaseDollar uses price oracles to provide accurate valuations for all collateral types on Base.
+Base Dollar uses price oracles to provide accurate valuations for all collateral types on Base.
 
 ## Oracle Provider
 
@@ -35,5 +35,5 @@ See [Collaterals](/docs/technical-documentation/collaterals) for the full list.
 
 ## Additional Resources
 
-- [Liquity V2 Documentation](https://docs.liquity.org/v2-documentation) - BaseDollar inherits Liquity V2's oracle architecture
+- [Liquity V2 Documentation](https://docs.liquity.org/v2-documentation) - Base Dollar inherits Liquity V2's oracle architecture
 - [Risk Disclosure](/docs/technical-documentation/risks) - Oracle-specific risks

@@ -65,7 +65,7 @@ Normal redemptions use branches in the Collateral Registry's redeemable list. No
 
 ![](https://docs.liquity.org/~gitbook/image?url=https%3A%2F%2F2342324437-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FE2A1Xrcj7XasxOiotWky%252Fuploads%252FJtx0jgGBkGisNExyXZ5a%252Fredemption%2520split%25202.png%3Falt%3Dmedia%26token%3D79f895c0-290c-41e9-9aeb-b3fa5a3709f5&width=768&dpr=4&quality=100&sign=17e818d8&sv=2)
 
-In contrast to LUSD, BD is backed by a multitude of collaterals. Instead of letting the redeemer freely choose the collateral to redeem, Liquity V2 and BaseDollar optimize the process for economic safety. Redemptions are thus serviced through a collateral mix in a way that enhances the overall backing of BD.
+In contrast to LUSD, BD is backed by a multitude of collaterals. Instead of letting the redeemer freely choose the collateral to redeem, Liquity V2 and Base Dollar optimize the process for economic safety. Redemptions are thus serviced through a collateral mix in a way that enhances the overall backing of BD.
 
 The process starts with the Troves paying the lowest interest rates in each participating redeemable branch and continues until the full amount of BD is exchanged for collateral assets. Redemptions can be partial or full.
 
@@ -120,7 +120,7 @@ During such times, you can comfortably reduce the interest rate you're paying wi
 
 ### What is delegation of interest rates?
 
-Interest rate delegation is a feature in Liquity V2 and BaseDollar that allows borrowers to delegate the management of their interest rate to a third party. This enables them to create a passive, hands-off position, while still keeping a competitive rate and low redemption risk.
+Interest rate delegation is a feature in Liquity V2 and Base Dollar that allows borrowers to delegate the management of their interest rate to a third party. This enables them to create a passive, hands-off position, while still keeping a competitive rate and low redemption risk.
 
 There are three types of delegations:
 
@@ -139,7 +139,7 @@ Borrowers should thus keep an eye on the interest rate range and the maximum upd
 | TBD | All configured assets | TBD | Interest rate delegation providers coming soon. |
 |        |                  |                  |             |
 
-_Note that neither Liquity AG nor BaseDollar are responsible for the actions of any delegates. Please do your own research._
+_Note that neither Liquity AG nor Base Dollar are responsible for the actions of any delegates. Please do your own research._
 
 ### What happens if there are issues with the smart contract for delegating interest rates?
 
@@ -149,10 +149,10 @@ Your Trove would not be affected - the only thing would get affected is the inte
 
 Given that the _raison d'etre_ for redemptions is to diminish BD supply in response to reduced demand, and interest rates drive demand, rate-based redemption processing is a more sustainable and effective lever to reach market equilibrium. Actively managing for both interest rate and LTV would weaken the ability to enforce market-level interest rates and deposit yields, while complicating the process for the system and its users
 
-### What's the difference in redemption fees charged between Liquity V1 and BaseDollar?
+### What's the difference in redemption fees charged between Liquity V1 and Base Dollar?
 In v2, when borrowers are affected by redemptions, the redemption fee charged to the redeemer stays within the affected Troves instead of being diverted as in Liquity.
 
-So, in Liquity the `borrower_loss = redemption_fee + redeemer_gain`, while in BaseDollar it's `borrower_loss = redeemer_gain`.
+So, in Liquity the `borrower_loss = redemption_fee + redeemer_gain`, while in Base Dollar it's `borrower_loss = redeemer_gain`.
 
 ### What happens when redemptions cause a debt of a Trove to fall below the minimum amount?
 

@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Collateral Parameters
 
-BaseDollar accepts two types of collateral: standard single-asset collateral and Aerodrome LP token collateral.
+Base Dollar accepts two types of collateral: standard single-asset collateral and Aerodrome LP token collateral.
 
 ## Standard Collaterals
 

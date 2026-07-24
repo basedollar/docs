@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# BaseDollar Bug Bounty 
+# Base Dollar Bug Bounty 
 
 Bug bounty details coming soon.
 
@@ -12,7 +12,7 @@ To report a security vulnerability: **TBD**
 
 # Liquity's Bug Bounty
 
-BaseDollar is built on Liquity V2's audited smart contracts. A bug bounty program for Liquity's underlying smart contracts is active.
+Base Dollar is built on Liquity V2's audited smart contracts. A bug bounty program for Liquity's underlying smart contracts is active.
 
 Check out Liquity's [bug bounty](https://docs.liquity.org/v2-documentation/bug-bounty) program for the most up to date information.
 
