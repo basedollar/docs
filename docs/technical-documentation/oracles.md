@@ -8,7 +8,7 @@ Base Dollar uses price oracles to provide accurate valuations for all collateral
 
 ## Oracle Provider
 
-**Provider**: TBD
+**Provider**: API3
 
 Oracle details will be published here when available.
 
@@ -20,7 +20,6 @@ Price feeds needed for:
 - rETH
 - cbBTC
 - cbETH
-- AERO
 
 ## LP Token Collaterals
 

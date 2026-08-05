@@ -11,24 +11,22 @@ Base Dollar accepts two types of collateral: standard single-asset collateral an
 | Asset | Envisioned LTV |
 |-------|----------------|
 | WETH | 90.91% |
-| wstETH | 83.33% |
-| rETH | 83.33% |
+| wstETH | 90.91% |
+| rETH | 90.91% |
 | cbBTC | 90.91% |
-| cbETH | 83.33% |
-| AERO | 66.67% |
+| cbETH | 90.91% |
 
 Standard collaterals have:
 - User-defined interest rates
 - Redemptions enabled
-- Individual stability pools
 
 ## LP Token Collaterals (Aerodrome)
 
-LP token collaterals are in segregated branches with unique mechanics:
+LP token collaterals are in separate branches with unique mechanics:
 - **Auto-staking** in Aerodrome gauges for AERO rewards
 - **10% default AeroManager claim fee**, capped at 20%
-- **Redeemability configured per branch**
-- **Individual Stability Pool** for each LP branch
+- **Borrow rate weighted AERO rewards**, boosted for LP borrowers with above-average rates
+- **Redemptions can be disabled**
 
 Aerodrome LP-token collateral branches are coming soon. Pair-specific parameters will be published before launch.
 
@@ -36,7 +34,6 @@ Aerodrome LP-token collateral branches are coming soon. Pair-specific parameters
 
 | Feature | Standard Collaterals | LP Token Collaterals |
 |---------|---------------------|---------------------|
-| **Stability Pool** | Individual per collateral | Individual per collateral |
-| **Redemptions** | Configured per branch | Configured per branch |
-| **Interest** | User-set rate | User-set rate; AERO rewards handled separately |
-| **Branch Type** | Regular | Segregated, capped |
+| **Redemptions** | Yes | Configured per branch; Can be protected from redemptions |
+| **Interest rate** | Set by borrower | Set by borrower; AERO rewards weighted by rates |
+| **AERO Rewards** | No | Yes, to borrowers |
