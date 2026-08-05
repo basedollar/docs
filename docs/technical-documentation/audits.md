@@ -4,13 +4,14 @@ sidebar_position: 7
 
 # Audit Reports
 
-Base Dollar security audits are in progress.
+Base Dollar underwent 2 security audits from Sherlock.
 
-## Planned Audits
+- [Sherlock - Report I](https://sherlock-files.ams3.digitaloceanspaces.com/reports/2026.05.19%20-%20Final%20-%20Base%20Dollar%20Collaborative%20Audit%20Report%201779228962.pdf)
+- [Sherlock - Report II](https://sherlock-files.ams3.digitaloceanspaces.com/reports/2026.07.21%20-%20Final%20-%20Base%20Dollar%20Collaborative%20Audit%20Report%201784678375.pdf)
 
-Audit reports will be published here when available.
+## Additional Security Reviews
 
-**Budget**: $100-150k allocated for comprehensive security audits.
+In addition to the audits, several security AI scans, including one from Zero Cool, were continuously performed throughout the development and refinement of the protocol.
 
 ## Liquity V2 Audits
 

@@ -26,7 +26,6 @@ The repository's current deployment configuration includes:
 - rETH
 - cbBTC
 - cbETH
-- AERO
 
 Addresses TBD after deployment.
 
