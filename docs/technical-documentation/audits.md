@@ -6,8 +6,8 @@ sidebar_position: 7
 
 Base Dollar underwent 2 security audits from Sherlock.
 
-[Sherlock - Report I](https://sherlock-files.ams3.digitaloceanspaces.com/reports/2026.05.19%20-%20Final%20-%20Base%20Dollar%20Collaborative%20Audit%20Report%201779228962.pdf)
-[Sherlock - Report II](https://sherlock-files.ams3.digitaloceanspaces.com/reports/2026.07.21%20-%20Final%20-%20Base%20Dollar%20Collaborative%20Audit%20Report%201784678375.pdf)
+- [Sherlock - Report I](https://sherlock-files.ams3.digitaloceanspaces.com/reports/2026.05.19%20-%20Final%20-%20Base%20Dollar%20Collaborative%20Audit%20Report%201779228962.pdf)
+- [Sherlock - Report II](https://sherlock-files.ams3.digitaloceanspaces.com/reports/2026.07.21%20-%20Final%20-%20Base%20Dollar%20Collaborative%20Audit%20Report%201784678375.pdf)
 
 ## Additional Security Reviews
 

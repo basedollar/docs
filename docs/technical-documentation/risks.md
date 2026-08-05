@@ -6,7 +6,9 @@ sidebar_position: 6
 
 Detailed disclosures of protocol risks and user considerations. Base Dollar code will be audited by multiple security firms.
 
-See audit reports: TBD
+See audit reports:
+- [Sherlock - Report I](https://sherlock-files.ams3.digitaloceanspaces.com/reports/2026.05.19%20-%20Final%20-%20Base%20Dollar%20Collaborative%20Audit%20Report%201779228962.pdf)
+- [Sherlock - Report II](https://sherlock-files.ams3.digitaloceanspaces.com/reports/2026.07.21%20-%20Final%20-%20Base%20Dollar%20Collaborative%20Audit%20Report%201784678375.pdf)
 
 ## Contract Risk 
 
