@@ -4,6 +4,7 @@ sidebar_position: 5
 
 # Governance
 
+{/*
 ## BASED Token
 
 BASED is the planned governance token. The active deployment path does not currently deploy BASED or its staking contract.
@@ -33,6 +34,7 @@ When governance is active, BASED holders can vote on:
 ### Distribution Strategy
 
 TBD
+*/}
 
 ## Protocol Owned Liquidity (POL)
 
