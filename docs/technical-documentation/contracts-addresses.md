@@ -16,6 +16,7 @@ All deployed contract addresses are listed below.
 |---|---|
 | Base Dollar (BD) | `0x252D36F435582EcB01686448d21e8C9eA0B2Ca65` |
 | CollateralRegistry | `0x7551EBFC8340b7F91874942Be9C653733D4fb04f` |
+| Governance | `0x519CA17DAE2E2A23396eBEC12DA1f645AccEC196` |
 | HintHelpers | `0x9D8FB1d1e2121e86375c07f0bA65dD54cb6CA333` |
 | MultiTroveGetter | `0xad0469046cFCc4806384e3263Ace6C11D005d608` |
 | DebtInFrontHelper | `0xC4a5393d6b96Bc77E5a80098ed08FdeEFF70B974` |
