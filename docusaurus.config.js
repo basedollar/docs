@@ -106,11 +106,11 @@ const config = {
               },
               {
                 label: "Discord",
-                href: "TBD",
+                href: "https://discord.gg/5h3avBYxcn",
               },
               {
                 label: "X",
-                href: "TBD",
+                href: "https://x.com/BaseDollarOrg",
               },
             ],
           },
