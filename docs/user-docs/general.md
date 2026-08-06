@@ -6,7 +6,7 @@ sidebar_position: 1
 # General
 
 ### What is Base Dollar?
-Base Dollar is a decentralized borrowing protocol that lets users deposit WETH, wstETH, rETH, cbBTC, cbETH, AERO, and Aerodrome LP tokens as collateral, and mint the stablecoin BaseD at an interest rate depositors choose. Base Dollar is a Liquity V2 fork built specifically for Base with innovative LP token collateral and AERO farming revenue.
+Base Dollar is a decentralized borrowing protocol that lets users deposit WETH, wstETH, rETH, cbBTC, cbETH, AERO, and Aerodrome LP tokens as collateral, and mint the stablecoin BD at an interest rate depositors choose. Base Dollar is a Liquity V2 fork built specifically for Base with innovative LP token collateral and AERO farming revenue.
 
 ### The main use-cases for Base Dollar are:
 
