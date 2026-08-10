@@ -62,9 +62,9 @@ const config = {
       // Replace with your project's social card
       image: "img/based-social-card.jpg",
       navbar: {
-        // title: "BaseD",
+        // title: "BD",
         logo: {
-          alt: "BaseD Logo",
+          alt: "BD Logo",
           src: "/img/logo.svg",
         },
         items: [
