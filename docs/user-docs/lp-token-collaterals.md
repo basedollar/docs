@@ -10,7 +10,7 @@ Base Dollar's contracts support Aerodrome LP tokens as collateral, with the firs
 
 - When you borrow against an Aerodrome LP position, Base Dollar automatically stakes that collateral in its configured Aerodrome gauge
 - Borrowers keep earning AERO rewards for as long as they borrow against the position
-- AERO rewards from all gauges are claimed and held in the AeroManager, with a small portion sent to a timelocked treasury
+- AERO rewards from all gauges are claimed and held in the AeroManager, with a small portion sent to a treasury
 - Redeemability is configured per branch; LP collateral is not automatically non-redeemable
 - Non-redeemable branches carry a higher minimum interest rate
 - Each LP branch has its own Stability Pool
@@ -23,7 +23,7 @@ The first supported Aerodrome LP pairs will be announced soon.
 
 AERO rewards are collected and distributed through the Base Dollar contracts rather than paid out continuously:
 
-- **Epoch-based distribution.** AERO across all gauges is claimed and held in the AeroManager, with a small portion routed to a timelocked treasury. At the end of each epoch, the remaining AERO is distributed to all borrowers who held active positions in the LP collateral branches during that epoch.
+- **Epoch-based distribution.** AERO across all gauges is claimed and held in the AeroManager, with a small portion routed to a treasury. At the end of each epoch, the remaining AERO is distributed to all borrowers who held active positions in the LP collateral branches during that epoch.
 - **Interest rate affects rewards.** The interest rate set on each loan influences its share of AERO. Positions with above-average rates receive a proportional boost, while positions with below-average rates receive fewer rewards.
 - **Potential to out-earn solo staking.** If you borrow against your LP position in Base Dollar and set your interest rate above the average borrowing rate, you could potentially earn *more* AERO than if you had independently staked the LP position yourself.
 - **Liquidations.** If a borrow position is liquidated, all AERO it accumulated during the epoch is redistributed to the other borrowers with active positions. If you hold multiple positions, only the rewards from the liquidated one are redistributed.

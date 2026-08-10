@@ -4,36 +4,6 @@ sidebar_position: 5
 
 # Governance
 
-## BASED Token
-
-BASED is the planned governance token. The active deployment path does not currently deploy BASED or its staking contract.
-
-### Token Distribution
-
-- **76.3% Community** (see BD Key Concepts PDF for full breakdown)
-
-### Proposed Revenue for Stakers
-
-If implemented as described, BASED token stakers would receive:
-
-1. **10% of all interest** collected on the protocol from regular branches
-2. **10% of all AERO** farmed from LP token branches
-
-### Voting Power
-
-The protocol will fork LQTYv2 governance, with voting power accruing over time.
-
-### Governance Powers
-
-When governance is active, BASED holders can vote on:
-
-- **New collateral to be accepted** (TBD)
-- **Where to allocate BASED veAERO voting power** (within whitelisted pools involving BD or BD)
-
-### Distribution Strategy
-
-TBD
-
 ## Protocol Owned Liquidity (POL)
 
 Base Dollar uses Protocol Owned Liquidity instead of Protocol Incentivized Liquidity (PIL).

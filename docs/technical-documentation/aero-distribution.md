@@ -6,7 +6,7 @@ sidebar_position: 7
 
 ## Overview
 
-When borrowers deposit Aerodrome LP tokens as collateral, those LPs are automatically staked in their configured Aerodrome gauge to earn AERO rewards. AERO across all gauges is claimed and held in the AeroManager, with a small portion (the claim fee) routed to a timelocked treasury. AeroManager charges a 10% default claim fee, capped at 20%, and sends it to the configured treasury.
+When borrowers deposit Aerodrome LP tokens as collateral, those LPs are automatically staked in their configured Aerodrome gauge to earn AERO rewards. AERO across all gauges is claimed and held in the AeroManager, with a small portion (the claim fee) routed to a treasury. AeroManager charges a 10% default claim fee, capped at 20%, and sends it to the configured treasury.
 
 Borrowers continue earning AERO for as long as they hold an active borrow position against their LP collateral.
 

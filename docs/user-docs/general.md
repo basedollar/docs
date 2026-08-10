@@ -6,7 +6,7 @@ sidebar_position: 1
 # General
 
 ### What is Base Dollar?
-Base Dollar is a decentralized borrowing protocol that lets users deposit WETH, wstETH, rETH, cbBTC, cbETH, AERO, and Aerodrome LP tokens as collateral, and mint the stablecoin BaseD at an interest rate depositors choose. Base Dollar is a Liquity V2 fork built specifically for Base with innovative LP token collateral and AERO farming revenue.
+Base Dollar is a decentralized borrowing protocol that lets users deposit WETH, wstETH, rETH, cbBTC, cbETH, AERO, and Aerodrome LP tokens as collateral, and mint the stablecoin BD at an interest rate depositors choose. Base Dollar is a Liquity V2 fork built specifically for Base with innovative LP token collateral and AERO farming revenue.
 
 ### The main use-cases for Base Dollar are:
 
@@ -43,15 +43,13 @@ To understand Base Dollar, it's helpful to understand [Liquity](https://www.liqu
 | **Revenue Distribution** | 75% to the branch Stability Pool and 25% to the configured interest router. |
 
 ## Does Base Dollar have governance?
-Base Dollar currently uses governor roles rather than a deployed governance token. Planned governance scope includes:
+Base Dollar currently uses governor roles. Their scope includes:
 - Distributing Protocol Owned Liquidity (POL)
 - Directing protocol revenue and AERO rewards
 - Managing fees, LTV requirements, and minimum debt thresholds
 - Updating collateral debt limits
 - Adding or removing collateral branches via the Collateral Registry
 - Voting on veAERO allocation strategy
-
-A BASED governance-token and staking system is not deployed by the active deployment path.
 
 
 ## Other Helpful Resources:
