@@ -41,7 +41,7 @@ It is possible that some collateral tokens could be upgraded by respective DAOs 
 
 LP token collaterals introduce additional risks:
 - Impermanent loss
-- Aerodrome smart contract risk
+- Aero smart contract risk
 - LP token price oracle complexity
 - Pool liquidity risks
 

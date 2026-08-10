@@ -10,7 +10,7 @@ Base Dollar allows users to borrow the stablecoin Base Dollar (BD) with two dist
 
 **Standard Collaterals**: Borrowers can choose and adjust the rate they are willing to pay for their loans (0.5%, 5%, 20%, etc.). Borrowers will establish market rates in accordance with their individual risk tolerance without relying on governance or algorithm rate management.
 
-**LP Token Collaterals**: The contracts support Aerodrome LP-token branches. AeroManager stakes LP collateral in configured gauges and handles AERO rewards. Borrowers still set a BD interest rate, and redeemability is configured per branch.
+**LP Token Collaterals**: The contracts support Aero LP-token branches. AeroManager stakes LP collateral in configured gauges and handles AERO rewards. Borrowers still set a BD interest rate, and redeemability is configured per branch.
 
 Each collateral has its own respective borrow market which allows room for a market of rates to develop.
 
@@ -52,15 +52,15 @@ Base Dollar works with two types of collateral:
 - **cbETH** (83.33% max LTV)
 - **AERO** (66.67% max LTV)
 
-#### LP Token Collaterals (Aerodrome Pairs)
+#### LP Token Collaterals (Aero Pairs)
 
-The first Aerodrome LP-token collateral branches are coming soon.
+The first Aero LP-token collateral branches are coming soon.
 
 :::tip
 **LP Token Benefits**:
 - Redeemability configured per branch
 - Earn AERO rewards while borrowing
-- Auto-staking in Aerodrome gauges
+- Auto-staking in Aero gauges
 - User-set BD interest, with AERO rewards handled separately
 
 See [LP Token Collaterals](/docs/user-docs/lp-token-collaterals) for details.

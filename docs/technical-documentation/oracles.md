@@ -33,7 +33,7 @@ LP token pricing requires composite oracles based on:
 - Pool reserves
 - LP token total supply
 
-Stable and volatile Aerodrome LP pools are supported by the oracle contracts. Pair and oracle details will be published when the upcoming LP-token branches launch.
+Stable and volatile Aero LP pools are supported by the oracle contracts. Pair and oracle details will be published when the upcoming LP-token branches launch.
 
 See [Collaterals](/docs/technical-documentation/collaterals) for the full list.
 

@@ -16,7 +16,7 @@ BD is a resilient stablecoin by design:
 
 ### What are BD's main benefits compared to other stablecoins?
 
-* The current configuration supports WETH, wstETH, rETH, cbBTC, cbETH, and AERO. Aerodrome LP-token branches are also supported by the contracts.
+* The current configuration supports WETH, wstETH, rETH, cbBTC, cbETH, and AERO. Aero LP-token branches are also supported by the contracts.
 * BD can be redeemed for collateral through branches registered as redeemable.
 * BD has Protocol Owned Liquidity (POL) directed by governance, ensuring that there will always be sufficient liquidity to handle transactions
 * BD is Base native, and is built specifically for the Base L2 network.
@@ -36,7 +36,7 @@ In contrast, when BD trades below $1, arbitrageurs will initiate redemptions to 
 ### How can I earn yield with BD?
 
 * **Stability Pool deposits (Earn)**: Earn protocol revenue by depositing BD into the various Stability Pools.
-* **Protocol Owned Liquidity (POL)**: Supply liquidity for BD onto incentivized Aerodrome pools.
+* **Protocol Owned Liquidity (POL)**: Supply liquidity for BD onto incentivized Aero pools.
 
 ### Where does the yield for the Stability Pool deposits come from?
 

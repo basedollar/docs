@@ -6,13 +6,17 @@ sidebar_position: 1
 # General
 
 ### What is Base Dollar?
-Base Dollar is a decentralized borrowing protocol that lets users deposit WETH, wstETH, rETH, cbBTC, cbETH, AERO, and Aerodrome LP tokens as collateral, and mint the stablecoin BD at an interest rate depositors choose. Base Dollar is a Liquity V2 fork built specifically for Base with innovative LP token collateral and AERO farming revenue.
+Base Dollar is a decentralized borrowing protocol that lets users deposit WETH, wstETH, rETH, cbBTC, cbETH, AERO, and Aero LP tokens as collateral, and mint the stablecoin BD at an interest rate depositors choose. Base Dollar is a Liquity V2 fork built specifically for Base with innovative LP token collateral and AERO farming revenue.
+
+:::note
+**Aero** is the successor of Aerodrome and Velodrome built on MetaDEX03 from Dromos Labs. It is planned to launch in Q4 of 2026. More information and updates on the new protocol can be found on their [website](https://aero.xyz).
+:::
 
 ### The main use-cases for Base Dollar are:
 
 - Borrow BD
 - Earn yield by depositing BD in the stability pools
-- Leverage Aerodrome LP positions while earning AERO rewards
+- Leverage Aero LP positions while earning AERO rewards
 
 To understand Base Dollar, it's helpful to understand [Liquity](https://www.liquity.org).
 
@@ -36,8 +40,8 @@ To understand Base Dollar, it's helpful to understand [Liquity](https://www.liqu
 | Key Differences | Description  |
 |--|--|
 | **Blockchain** | Base (Ethereum L2) vs Ethereum Mainnet |
-| **Collateral Types** | WETH, wstETH, rETH, cbBTC, cbETH, AERO, and Aerodrome LP tokens. Additional collateral types can be added in the future. |
-| **LP Token Innovation** | Routes configured Aerodrome LP collateral through AeroManager for gauge staking and AERO rewards. |
+| **Collateral Types** | WETH, wstETH, rETH, cbBTC, cbETH, AERO, and Aero LP tokens. Additional collateral types can be added in the future. |
+| **LP Token Innovation** | Routes configured Aero LP collateral through AeroManager for gauge staking and AERO rewards. |
 | **AERO Integration** | AeroManager charges a 10% default claim fee, capped at 20%, and sends it to the treasury. |
 | **Branch Redeemability** | Each branch is registered as redeemable or non-redeemable; LP collateral is not automatically protected. |
 | **Revenue Distribution** | 75% to the branch Stability Pool and 25% to the configured interest router. |
@@ -66,12 +70,11 @@ https://github.com/basedollar
 Base Block Explorer:
 https://basescan.org/
 
-Aerodrome Finance:
-https://aerodrome.finance/
+Aero:
+https://aero.xyz/
 
 Liquity V2 Documentation:
 https://docs.liquity.org/
 
 Community:
-- Discord: https://discord.gg/5h3avBYxcn
 - X/Twitter: https://x.com/BaseDollarOrg
