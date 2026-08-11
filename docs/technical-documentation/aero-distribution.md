@@ -39,9 +39,9 @@ Because of this weighting, a borrower who opens a position against their LP coll
 - **Liquidation.** If a borrow position is liquidated, all AERO it accumulated during the epoch is redistributed to the other borrowers with active positions. If a borrower holds multiple positions, only the rewards from the liquidated position are redistributed; the others are unaffected.
 - **Closing a position.** If a borrower closes a position, they still earn AERO for the portion of the epoch during which the position was active.
 
-## Protocol Owned Liquidity (POL) Strategy
+<!-- ## Protocol Owned Liquidity (POL) Strategy
 
-A fixed veAERO voting or POL strategy is not implemented in the current contracts.
+A fixed veAERO voting or POL strategy is not implemented in the current contracts. -->
 
 ## Revenue Flows
 

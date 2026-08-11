@@ -47,13 +47,11 @@ To understand Base Dollar, it's helpful to understand [Liquity](https://www.liqu
 | **Revenue Distribution** | 75% to the branch Stability Pool and 25% to the configured interest router. |
 
 ## Does Base Dollar have governance?
-Base Dollar currently uses governor roles. Their scope includes:
-- Distributing Protocol Owned Liquidity (POL)
+Base Dollar has limited scope of governance permissions in the protocol:
 - Directing protocol revenue and AERO rewards
-- Managing fees, LTV requirements, and minimum debt thresholds
+- Managing fees within limits
 - Updating collateral debt limits
-- Adding or removing collateral branches via the Collateral Registry
-- Voting on veAERO allocation strategy
+- Adding collateral branches
 
 
 ## Other Helpful Resources:
@@ -76,5 +74,4 @@ https://aero.xyz/
 Liquity V2 Documentation:
 https://docs.liquity.org/
 
-Community:
-- X/Twitter: https://x.com/BaseDollarOrg
+X/Twitter: https://x.com/BaseDollarOrg

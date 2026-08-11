@@ -24,7 +24,8 @@ Base Dollar Protocol is designed to be as limited and decentralized as possible.
 
 1. Debt limits for each collateral type, which can be lowered at any time but only raised by a factor of 2x with a 7 day timelock.
 2. How to direct protocol revenue (POL management, veAERO voting).
-3. Adding/removing collateral types.
+3. AERO rewards claim fee, capped at 20% max.
+3. Adding collateral types.
 
 BD can NEVER be minted by Base Dollar governance.
 The percentage of fees that are directed to the stability pool can NOT be changed by Base Dollar governance.
