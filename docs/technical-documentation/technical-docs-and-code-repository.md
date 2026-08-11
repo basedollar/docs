@@ -28,7 +28,7 @@ Debt limit can be lowered to any amount at any time. (Still must use the timeloc
 
 ### LP Token Collateral
 
-New contracts for Aerodrome LP token support:
+New contracts for Aero LP token support:
 - Gauge staking through AeroManager
 - AERO reward accounting with a 10% default claim fee, capped at 20%
 - Individual Stability Pools for LP branches
@@ -39,4 +39,4 @@ New contracts for Aerodrome LP token support:
 
 - **Liquity V2 GitHub**: [github.com/liquity/bold](https://github.com/liquity/bold)
 - **Base Documentation**: [docs.base.org](https://docs.base.org)
-- **Aerodrome Documentation**: [docs.aerodrome.finance](https://docs.aerodrome.finance)
+- **Aero Articles**: [https://aero.xyz/articles/](https://aero.xyz/articles/)

@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Collateral Parameters
 
-Base Dollar accepts two types of collateral: standard single-asset collateral and Aerodrome LP token collateral.
+Base Dollar accepts two types of collateral: standard single-asset collateral and Aero LP token collateral.
 
 ## Standard Collaterals
 
@@ -20,15 +20,15 @@ Standard collaterals have:
 - User-defined interest rates
 - Redemptions enabled
 
-## LP Token Collaterals (Aerodrome)
+## LP Token Collaterals (Aero)
 
 LP token collaterals are in separate branches with unique mechanics:
-- **Auto-staking** in Aerodrome gauges for AERO rewards
+- **Auto-staking** in Aero gauges for AERO rewards
 - **10% default AeroManager claim fee**, capped at 20%
 - **Borrow rate weighted AERO rewards**, boosted for LP borrowers with above-average rates
 - **Redemptions can be disabled**
 
-Aerodrome LP-token collateral branches are coming soon. Pair-specific parameters will be published before launch.
+Aero LP-token collateral branches are coming soon. Pair-specific parameters will be published before launch.
 
 ## Key Differences
 

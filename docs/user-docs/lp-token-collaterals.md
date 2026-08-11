@@ -4,11 +4,15 @@ sidebar_position: 6
 
 # LP Token Collaterals
 
-Base Dollar's contracts support Aerodrome LP tokens as collateral, with the first LP-token branches coming soon.
+Base Dollar's contracts support Aero LP tokens as collateral, with the first LP-token branches coming soon.
+
+:::note
+**Aero** is the successor of Aerodrome and Velodrome built on MetaDEX03 from Dromos Labs. It is planned to launch in Q4 of 2026. More information and updates on the new protocol can be found on their [website](https://aero.xyz).
+:::
 
 ## How It Works
 
-- When you borrow against an Aerodrome LP position, Base Dollar automatically stakes that collateral in its configured Aerodrome gauge
+- When you borrow against an Aero LP position, Base Dollar automatically stakes that collateral in its configured Aero gauge
 - Borrowers keep earning AERO rewards for as long as they borrow against the position
 - AERO rewards from all gauges are claimed and held in the AeroManager, with a small portion sent to a treasury
 - Redeemability is configured per branch; LP collateral is not automatically non-redeemable
@@ -17,7 +21,7 @@ Base Dollar's contracts support Aerodrome LP tokens as collateral, with the firs
 
 ## Accepted LP Tokens
 
-The first supported Aerodrome LP pairs will be announced soon.
+The first supported Aero LP pairs will be announced soon.
 
 ## AERO Distribution
 
